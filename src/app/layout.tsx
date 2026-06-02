@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
 import Nav from "@/components/Nav";
 import "./globals.css";
+import nlMessages from "../../messages/nl.json";
 
 export const metadata: Metadata = {
-  title: "Dagdaad — 每天记一件好事",
-  description: "记录你每天为别人做的一件好事。让自己看见善意的痕迹。",
+  title: "Dagdaad — elke dag een goede daad",
+  description:
+    "Noteer elke dag één goede daad die je voor iemand deed. Zie je eigen spoor van vriendelijkheid.",
   metadataBase: new URL("https://dagdaad.nl"),
   openGraph: {
     title: "Dagdaad",
-    description: "记录你每天为别人做的一件好事。让自己看见善意的痕迹。",
+    description: "Noteer elke dag één goede daad die je voor iemand deed.",
     siteName: "Dagdaad",
-    locale: "zh_CN",
+    locale: "nl_NL",
     type: "website",
   },
 };
@@ -21,10 +24,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN" className="h-full antialiased">
+    <html lang="nl" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
-        <Nav />
-        {children}
+        <NextIntlClientProvider locale="nl" messages={nlMessages} timeZone="Europe/Amsterdam">
+          <Nav />
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

@@ -1,0 +1,153 @@
+{
+  "nav": {
+    "write": "Schrijven",
+    "calendar": "Kalender",
+    "stats": "Statistieken",
+    "logout": "Uitloggen",
+    "login": "Inloggen 🚀"
+  },
+  "home": {
+    "heroEmoji": "🌟",
+    "title": "Elke dag een <highlight>goede daad</highlight>",
+    "subtitle": "Wat heb jij vandaag voor een ander gedaan? Een klein gebaar, een luisterend oor, een verrassing. Alles telt.",
+    "cta": "Schrijf je goede daad ✍️",
+    "howItWorks": "Hoe het werkt 🧩",
+    "steps": [
+      {
+        "emoji": "✍️",
+        "title": "Schrijf",
+        "desc": "Wat heb je vandaag gedaan? Een kop koffie voor een collega, een luisterend oor, een verrassing — alles kan."
+      },
+      {
+        "emoji": "📅",
+        "title": "Bekijk de maand",
+        "desc": "Elke dag een vakje. Aan het eind van de maand zie je een veld vol kleur — jouw spoor van vriendelijkheid."
+      },
+      {
+        "emoji": "📈",
+        "title": "Groei",
+        "desc": "Hoeveel goede daden heb je gedaan? Wat voor dingen? Zie je eigen patroon langzaam vorm krijgen."
+      }
+    ],
+    "pricing": {
+      "title": "Gratis beginnen 🎁",
+      "subtitle": "30 goede daden per maand gratis. Wil je terugkijken? Dan heb je een abonnement nodig.",
+      "free": {
+        "badge": "🌟 Gratis",
+        "price": "€0",
+        "period": "per maand",
+        "features": [
+          "✅ 30 goede daden per maand",
+          "✅ Huidige maand bekijken",
+          "✅ Basis statistieken"
+        ]
+      },
+      "pro": {
+        "badge": "⭐ Populair",
+        "price": "€3,99",
+        "period": "per maand",
+        "features": [
+          "✅ Onbeperkt noteren",
+          "✅ Alle maanden terugkijken",
+          "✅ Jaaroverzicht (PDF)",
+          "✅ Exporteren CSV/JSON",
+          "✅ Thema-kleuren"
+        ]
+      },
+      "footnote": "Maandelijks €3,99 of jaarlijks €29. Altijd opzegbaar."
+    },
+    "footer": {
+      "line1": "✨ Dagdaad — noteer vriendelijkheid, maak het waar.",
+      "line2": "Als je het opschrijft, gebeurt het."
+    }
+  },
+  "write": {
+    "step0": {
+      "emoji": "✍️",
+      "title": "Wat heb je vandaag gedaan?",
+      "placeholder": "Bijv: een kop koffie voor een collega, een bemoedigend berichtje gestuurd, gebeld met je ouders..."
+    },
+    "step1": {
+      "emoji": "💭",
+      "title": "Hoe voel je je?",
+      "subtitle": "Kies er een, of typ je eigen"
+    },
+    "step2": {
+      "emoji": "🌱",
+      "title": "Wat voor impact had het?",
+      "placeholder": "Of typ je eigen impact..."
+    },
+    "moods": [
+      { "emoji": "😊", "label": "Blij" },
+      { "emoji": "🥰", "label": "Liefdevol" },
+      { "emoji": "🙏", "label": "Dankbaar" },
+      { "emoji": "😌", "label": "Tevreden" },
+      { "emoji": "🎉", "label": "Opgetogen" },
+      { "emoji": "💪", "label": "Trots" },
+      { "emoji": "🤔", "label": "Bedachtzaam" },
+      { "emoji": "😅", "label": "Opgelucht" },
+      { "emoji": "🧘", "label": "Rustig" }
+    ],
+    "impacts": [
+      "Ik heb iemands dag een beetje beter gemaakt ☀️",
+      "Ik voelde me verbonden met de wereld 🤝",
+      "Het gaf me energie ⚡",
+      "Ik zag iets vanuit een nieuw perspectief 👀",
+      "Klein, maar hartverwarmend 🌱"
+    ],
+    "back": "← Vorige",
+    "next": "Volgende →",
+    "save": "Opslaan 🌟",
+    "saving": "Bezig met opslaan…",
+    "savedTitle": "Opgeslagen!",
+    "savedSubtitle": "Je goede daad is opgeslagen. Morgen weer een nieuwe!",
+    "writeAnother": "Nog een noteren ✍️",
+    "viewCalendar": "Bekijk kalender 📅",
+    "charCount": "{count} tekens",
+    "error": "Opslaan mislukt"
+  },
+  "calendar": {
+    "months": [
+      "januari", "februari", "maart", "april", "mei", "juni",
+      "juli", "augustus", "september", "oktober", "november", "december"
+    ],
+    "days": ["Ma", "Di", "Wo", "Do", "Vr", "Za", "Zo"],
+    "empty": "Deze dag nog geen goede daad 📭",
+    "cta": "Noteer je goede daad ✍️"
+  },
+  "stats": {
+    "title": "📊 Mijn statistieken",
+    "total": "Totaal goede daden",
+    "thisMonth": "Deze maand",
+    "streak": "Huidige streak (dagen)",
+    "longestStreak": "Langste streak",
+    "mostUsed": "Meest gebruikt",
+    "recentTitle": "Recente goede daden",
+    "empty": "Nog geen notities. Begin met de eerste! ✍️",
+    "ctaWrite": "Noteer een nieuwe ✍️",
+    "ctaCalendar": "Bekijk kalender 📅"
+  },
+  "login": {
+    "title": "Inloggen bij Dagdaad",
+    "subtitle": "Noteer elke dag je goede daad",
+    "google": "Inloggen met Google",
+    "or": "of",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "jij@voorbeeld.nl",
+    "sendOtp": "Verstuur verificatiecode",
+    "sending": "Bezig met verzenden…",
+    "otpSent": "Verificatiecode verstuurd naar",
+    "otpLabel": "Verificatiecode",
+    "otpPlaceholder": "000000",
+    "verify": "Inloggen",
+    "verifying": "Bezig met verifiëren…",
+    "changeEmail": "← Ander e-mailadres",
+    "terms": "Door in te loggen ga je akkoord met onze servicevoorwaarden en privacyverklaring.",
+    "errors": {
+      "sendFailed": "Versturen mislukt",
+      "invalidOtp": "Verificatiecode is onjuist",
+      "sendError": "Versturen verificatiecode mislukt, probeer opnieuw",
+      "verifyError": "Verifiëren mislukt, probeer opnieuw"
+    }
+  }
+}

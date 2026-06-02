@@ -2,30 +2,24 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
-type MoodEmoji = "😊" | "🙏" | "😌" | "🎉" | "💪" | "🥰" | "🤔" | "😅" | "🧘";
-
-const moodOptions: { emoji: MoodEmoji; label: string }[] = [
-  { emoji: "😊", label: "开心" },
-  { emoji: "🥰", label: "有爱" },
-  { emoji: "🙏", label: "感恩" },
-  { emoji: "😌", label: "满足" },
-  { emoji: "🎉", label: "雀跃" },
-  { emoji: "💪", label: "自豪" },
-  { emoji: "🤔", label: "若有所思" },
-  { emoji: "😅", label: "松了一口气" },
-  { emoji: "🧘", label: "平静" },
-];
-
-const impactOptions = [
-  "让人家的今天变好了一点 ☀️",
-  "感觉和世界有了连接 🤝",
-  "给了我能量 ⚡",
-  "对一件事有了新的看法 👀",
-  "很小，但很暖 🌱",
-];
+type MoodEmoji =
+  | "😊"
+  | "🙏"
+  | "😌"
+  | "🎉"
+  | "💪"
+  | "🥰"
+  | "🤔"
+  | "😅"
+  | "🧘";
 
 export default function SchrijvenPage() {
+  const t = useTranslations("write");
+  const moods = t.raw("moods") as { emoji: MoodEmoji; label: string }[];
+  const impacts = t.raw("impacts") as string[];
+
   const [step, setStep] = useState(0);
   const [goodThing, setGoodThing] = useState("");
   const [mood, setMood] = useState<MoodEmoji | null>(null);
@@ -46,11 +40,11 @@ export default function SchrijvenPage() {
       });
       if (!res.ok) {
         const data = await res.json();
-        throw new Error(data.error || "保存失败");
+        throw new Error(data.error || t("error"));
       }
       setSaved(true);
     } catch (e: any) {
-      setError(e.message || "保存失败");
+      setError(e.message || t("error"));
     }
     setSaving(false);
   };
@@ -60,18 +54,19 @@ export default function SchrijvenPage() {
       <div className="flex-1 flex items-center justify-center px-6 text-center">
         <div>
           <span className="text-6xl block mb-6">🌟</span>
-          <h1 className="text-3xl font-bold mb-3">
-            记下来了！
-          </h1>
+          <h1 className="text-3xl font-bold mb-3">{t("savedTitle")}</h1>
           <p className="text-[var(--text-secondary)] mb-8">
-            你的好事已经保存。明天再来一条新的！
+            {t("savedSubtitle")}
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
             <Link href="/write" className="btn-primary">
-              再记一条 ✍️
+              {t("writeAnother")}
             </Link>
-            <Link href="/calendar" className="btn-ghost border border-[#E8E0D0]">
-              看日历 📅
+            <Link
+              href="/calendar"
+              className="btn-ghost border border-[#E8E0D0]"
+            >
+              {t("viewCalendar")}
             </Link>
           </div>
         </div>
@@ -95,40 +90,40 @@ export default function SchrijvenPage() {
 
       {step === 0 && (
         <>
-          <span className="text-4xl mb-4">✍️</span>
+          <span className="text-4xl mb-4">{t("step0.emoji")}</span>
           <h2 className="text-2xl font-bold mb-6 text-center">
-            今天你做了什么好事？
+            {t("step0.title")}
           </h2>
           <textarea
             className="input-field min-h-[140px] resize-none"
-            placeholder="比如：帮同事倒了杯咖啡、给朋友发了条暖心的消息、打电话陪爸妈聊了会儿天……"
+            placeholder={t("step0.placeholder")}
             value={goodThing}
             onChange={(e) => setGoodThing(e.target.value)}
           />
           <p className="text-xs text-[var(--text-secondary)] mt-2 self-start">
-            {goodThing.length} 字
+            {t("charCount", { count: goodThing.length })}
           </p>
           <button
             onClick={() => setStep(1)}
             disabled={!goodThing.trim()}
             className="btn-primary mt-6 disabled:opacity-40"
           >
-            下一步 →
+            {t("next")}
           </button>
         </>
       )}
 
       {step === 1 && (
         <>
-          <span className="text-4xl mb-4">💭</span>
+          <span className="text-4xl mb-4">{t("step1.emoji")}</span>
           <h2 className="text-2xl font-bold mb-2 text-center">
-            你感觉怎么样？
+            {t("step1.title")}
           </h2>
           <p className="text-sm text-[var(--text-secondary)] mb-6 text-center">
-            选一个，或者自己写
+            {t("step1.subtitle")}
           </p>
           <div className="grid grid-cols-3 gap-3 w-full">
-            {moodOptions.map((m) => (
+            {moods.map((m) => (
               <button
                 key={m.emoji}
                 onClick={() => setMood(m.emoji)}
@@ -145,14 +140,14 @@ export default function SchrijvenPage() {
           </div>
           <div className="flex gap-3 mt-6">
             <button onClick={() => setStep(0)} className="btn-ghost">
-              ← 上一步
+              {t("back")}
             </button>
             <button
               onClick={() => setStep(2)}
               disabled={!mood}
               className="btn-primary disabled:opacity-40"
             >
-              下一步 →
+              {t("next")}
             </button>
           </div>
         </>
@@ -160,12 +155,12 @@ export default function SchrijvenPage() {
 
       {step === 2 && (
         <>
-          <span className="text-4xl mb-4">🌱</span>
+          <span className="text-4xl mb-4">{t("step2.emoji")}</span>
           <h2 className="text-2xl font-bold mb-6 text-center">
-            这件事带来了什么影响？
+            {t("step2.title")}
           </h2>
           <div className="w-full space-y-3">
-            {impactOptions.map((opt) => (
+            {impacts.map((opt) => (
               <button
                 key={opt}
                 onClick={() => setImpact(opt)}
@@ -180,22 +175,24 @@ export default function SchrijvenPage() {
             ))}
             <input
               className="input-field mt-2"
-              placeholder="或者自己写一个影响……"
+              placeholder={t("step2.placeholder")}
               value={impact}
               onChange={(e) => setImpact(e.target.value)}
             />
           </div>
-          {error && <p className="text-red-500 text-sm text-center mt-2">{error}</p>}
+          {error && (
+            <p className="text-red-500 text-sm text-center mt-2">{error}</p>
+          )}
           <div className="flex gap-3 mt-6">
             <button onClick={() => setStep(1)} className="btn-ghost">
-              ← 上一步
+              {t("back")}
             </button>
             <button
               onClick={handleSave}
               disabled={saving || !impact}
               className="btn-primary disabled:opacity-40"
             >
-              {saving ? "保存中…" : "保存 🌟"}
+              {saving ? t("saving") : t("save")}
             </button>
           </div>
         </>

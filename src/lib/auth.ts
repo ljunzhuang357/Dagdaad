@@ -28,25 +28,25 @@ export const auth = betterAuth({
           await resend.emails.send({
             from: "Dagdaad <noreply@dagdaad.nl>",
             to: email,
-            subject: type === "sign-in" ? "登录 Dagdaad" : "验证你的邮箱",
+            subject: type === "sign-in" ? "Inloggen bij Dagdaad" : "Verifieer je e-mailadres",
             html: `<div style="font-family:sans-serif;max-width:480px;margin:0 auto;padding:32px 24px">
               <div style="text-align:center;font-size:32px;margin-bottom:16px">✨</div>
               <h1 style="text-align:center;font-size:20px;font-weight:600;margin:0 0 8px">
-                ${type === "sign-in" ? "登录验证码" : "邮箱验证"}
+                ${type === "sign-in" ? "Je verificatiecode" : "E-mailverificatie"}
               </h1>
               <p style="color:#666;text-align:center;margin:0 0 24px">
-                把下面的验证码粘贴到 Dagdaad 登录页面
+                Kopieer de code hieronder en plak deze op de Dagdaad inlogpagina
               </p>
               <div style="background:#f5f0e8;border-radius:12px;padding:16px;text-align:center;font-size:36px;font-weight:700;letter-spacing:8px;font-family:monospace">
                 ${otp.match(/.{1,3}/g)?.join("&nbsp;") || otp}
               </div>
               <p style="color:#999;font-size:12px;text-align:center;margin-top:24px">
-                验证码 5 分钟内有效
+                Code is 5 minuten geldig
               </p>
             </div>`,
           });
         } else {
-          // 开发环境：打印到终端
+          // dev: log to console
           console.log(`[OTP] ${email} (${type}): ${otp}`);
         }
       },
