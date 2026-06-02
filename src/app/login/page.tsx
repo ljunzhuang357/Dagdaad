@@ -46,7 +46,8 @@ export default function LoginPage() {
         setLoading(false);
         return;
       }
-      window.location.href = "/";
+      const hasPending = !!localStorage.getItem("dagdaad_pending");
+      window.location.href = hasPending ? "/write" : "/";
     } catch {
       setError(t("errors.verifyError"));
     }
@@ -54,9 +55,10 @@ export default function LoginPage() {
   };
 
   const signInGoogle = () => {
+    const hasPending = !!localStorage.getItem("dagdaad_pending");
     authClient.signIn.social({
       provider: "google",
-      callbackURL: "/",
+      callbackURL: hasPending ? "/write" : "/",
     });
   };
 

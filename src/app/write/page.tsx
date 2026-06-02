@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
@@ -15,6 +15,8 @@ type MoodEmoji =
   | "😅"
   | "🧘";
 
+const PENDING_KEY = "dagdaad_pending";
+
 export default function SchrijvenPage() {
   const t = useTranslations("write");
   const moods = t.raw("moods") as { emoji: MoodEmoji; label: string }[];
@@ -27,6 +29,60 @@ export default function SchrijvenPage() {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState("");
+  const restored = useRef(false);
+
+  // 登录后恢复未保存的数据并自动提交
+  useEffect(() => {
+    if (restored.current) return;
+    const raw = localStorage.getItem(PENDING_KEY);
+    if (!raw) return;
+    restored.current = true;
+    localStorage.removeItem(PENDING_KEY);
+
+    try {
+      const data = JSON.parse(raw);
+      if (!data.description || !data.mood || !data.impact) return;
+
+      // 先恢复表单状态
+      setGoodThing(data.description);
+      setMood(data.mood);
+      setImpact(data.impact);
+      setStep(2);
+
+      // state 稳定后自动保存
+      setTimeout(async () => {
+        setSaving(true);
+        setError("");
+        try {
+          const res = await fetch("/api/deeds", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              description: data.description,
+              mood: data.mood,
+              impact: data.impact,
+            }),
+          });
+          if (!res.ok) {
+            if (res.status === 401) {
+              // 仍然未登录——再存回去，跳到登录页
+              localStorage.setItem(PENDING_KEY, raw);
+              window.location.href = "/login";
+              return;
+            }
+            const errData = await res.json();
+            throw new Error(errData.error || t("error"));
+          }
+          setSaved(true);
+        } catch (e: any) {
+          setError(e.message || t("error"));
+        }
+        setSaving(false);
+      }, 100);
+    } catch {
+      /* JSON 解析失败就跳过 */
+    }
+  }, [t]);
 
   const handleSave = async () => {
     if (!goodThing.trim() || !mood || !impact) return;
@@ -39,6 +95,15 @@ export default function SchrijvenPage() {
         body: JSON.stringify({ description: goodThing, mood, impact }),
       });
       if (!res.ok) {
+        if (res.status === 401) {
+          // 未登录→暂存数据→跳到登录页
+          localStorage.setItem(
+            PENDING_KEY,
+            JSON.stringify({ description: goodThing, mood, impact })
+          );
+          window.location.href = "/login";
+          return;
+        }
         const data = await res.json();
         throw new Error(data.error || t("error"));
       }
