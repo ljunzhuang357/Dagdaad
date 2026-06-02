@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  --bg-warm: #FFF8E7;
+  --bg-card: #FFFFFF;
+  --text-primary: #2D2D2D;
+  --text-secondary: #6B6B6B;
+  --accent-orange: #FF8C42;
+  --accent-pink: #FF6B9D;
+  --accent-purple: #9B59B6;
+  --accent-blue: #4ECDC4;
+  --accent-yellow: #FFD93D;
+  --gradient-hero: linear-gradient(135deg, #FFF3E0 0%, #FFE0EC 50%, #E8E0FF 100%);
+  --gradient-card: linear-gradient(135deg, #FFF8E7 0%, #FFE8D6 100%);
+}
+
+@theme inline {
+  --color-background: var(--bg-warm);
+  --color-foreground: var(--text-primary);
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "SF Mono", Monaco, "Cascadia Code", Consolas, monospace;
+}
+
+body {
+  background: var(--bg-warm);
+  color: var(--text-primary);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.card {
+  background: var(--bg-card);
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink));
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-primary);
+  font-weight: 500;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  transition: background 0.2s;
+}
+.btn-ghost:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.input-field {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border-radius: 16px;
+  border: 2px solid #E8E0D0;
+  background: var(--bg-card);
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  outline: none;
+}
+.input-field:focus {
+  border-color: var(--accent-orange);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
