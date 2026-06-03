@@ -5,6 +5,7 @@
       <stop offset="100%" stop-color="#FF6B9D"/>
     </linearGradient>
   </defs>
-  <!-- 星星主体 -->
-  <path d="M50 8 L60 38 L92 38 L66 58 L75 90 L50 70 L25 90 L34 58 L8 38 L40 38 Z" fill="url(#g)"/>
+  <rect width="100" height="100" rx="20" fill="url(#g)"/>
+  <circle cx="50" cy="44" r="20" fill="#FFF8E7" opacity="0.95"/>
+  <path d="M50 30 Q70 20 78 40 Q84 58 60 70 L50 78 L40 70 Q16 58 22 40 Q30 20 50 30Z" fill="url(#g)"/>
 </svg>
