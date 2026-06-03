@@ -126,7 +126,16 @@ export default async function Image({ params }: Props) {
             paddingTop: 40,
           }}
         >
-          <span style={{ fontSize: 28 }}>✨</span>
+          <svg width="32" height="32" viewBox="0 0 100 100" style="display:flex">
+            <defs>
+              <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FF8C42"/>
+                <stop offset="100%" stop-color="#FF6B9D"/>
+              </linearGradient>
+            </defs>
+            <circle cx="50" cy="50" r="46" fill="url(#lg)" opacity="0.15"/>
+            <path d="M50 30 Q70 20 78 40 Q84 58 60 70 L50 78 L40 70 Q16 58 22 40 Q30 20 50 30Z" fill="url(#lg)"/>
+          </svg>
           <span
             style={{
               fontSize: 24,
