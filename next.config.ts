@@ -5,6 +5,7 @@ const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  serverExternalPackages: ["better-sqlite3", "better-sqlite3-session-store"],
 
   async headers() {
     return [
