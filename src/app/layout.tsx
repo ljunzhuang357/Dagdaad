@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     images: ["/og-default.svg"],
   },
   icons: {
-    icon: "/logo.png",
+    icon: "/favicon.svg",
     apple: "/logo.png",
   },
   robots: {
