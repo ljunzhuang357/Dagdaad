@@ -126,7 +126,7 @@ export default async function Image({ params }: Props) {
             paddingTop: 40,
           }}
         >
-          <svg width="32" height="32" viewBox="0 0 100 100" style="display:flex">
+          <svg width="32" height="32" viewBox="0 0 100 100" style={{ display: "flex" }}>
             <defs>
               <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#FF8C42"/>
