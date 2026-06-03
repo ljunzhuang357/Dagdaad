@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/patch-kysely-adapter.mjs && next build",
+    "postinstall": "node scripts/patch-kysely-adapter.mjs",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "@better-auth/kysely-adapter": "^1.6.14",
     "@neondatabase/serverless": "^1.1.0",
     "@vercel/og": "^0.11.1",
     "better-auth": "^1.6.12",
