@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import BlogSection from "@/components/BlogSection";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -22,7 +23,7 @@ export default function Home() {
           style={{ background: "var(--gradient-hero)" }}
         >
           <div className="max-w-2xl mx-auto">
-            <span className="text-5xl mb-6 block">{t("heroEmoji")}</span>
+            <span className="text-5xl mb-6 block" aria-hidden="true">{t("heroEmoji")}</span>
             <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-4">
               {t.rich("title", {
                 highlight: (chunks) => (
@@ -38,7 +39,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="mt-12 flex justify-center gap-4 text-2xl opacity-60 flex-wrap">
+          <div className="mt-12 flex justify-center gap-4 text-2xl opacity-60 flex-wrap" aria-hidden="true">
             <span>☕</span> <span>🌻</span> <span>🎈</span> <span>🍪</span>
             <span>🌈</span> <span>🦋</span> <span>🎵</span> <span>🌿</span>
           </div>
@@ -52,7 +53,7 @@ export default function Home() {
           <div className="grid sm:grid-cols-3 gap-6">
             {steps.map((item, i) => (
               <div key={i} className="card text-center">
-                <span className="text-3xl mb-3 block">{item.emoji}</span>
+                <span className="text-3xl mb-3 block" aria-hidden="true">{item.emoji}</span>
                 <h3 className="font-bold mb-2">{item.title}</h3>
                 <p className="text-sm text-[var(--text-secondary)]">
                   {item.desc}
@@ -109,10 +110,51 @@ export default function Home() {
           </div>
         </section>
 
+        {/* FAQ */}
+        <section className="px-6 py-16 max-w-2xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-10">
+            {t("faq.title")}
+          </h2>
+          <div className="space-y-4">
+            {(t.raw("faq.items") as { q: string; a: string }[]).map(
+              (item, i) => (
+                <details
+                  key={i}
+                  className="card cursor-pointer group open:ring-2 open:ring-[var(--accent-orange)]"
+                >
+                  <summary className="font-semibold text-base list-none flex items-center justify-between py-1 cursor-pointer">
+                    {item.q}
+                    <span className="text-lg transition-transform group-open:rotate-180">
+                      ▼
+                    </span>
+                  </summary>
+                  <p className="text-sm text-[var(--text-secondary)] mt-3 leading-relaxed">
+                    {item.a}
+                  </p>
+                </details>
+              )
+            )}
+          </div>
+        </section>
+
+        {/* Blog preview */}
+        <BlogSection />
+
         {/* Footer */}
         <footer className="text-center text-sm text-[var(--text-secondary)] py-8 px-6">
           <p>{t("footer.line1")}</p>
           <p className="mt-1">{t("footer.line2")}</p>
+          <div className="flex justify-center gap-4 mt-4 text-xs">
+            <Link href="/blog" className="underline hover:text-[var(--text-primary)]">
+              Blog
+            </Link>
+            <Link href="/privacy" className="underline hover:text-[var(--text-primary)]">
+              Privacy
+            </Link>
+            <Link href="/terms" className="underline hover:text-[var(--text-primary)]">
+              Voorwaarden
+            </Link>
+          </div>
         </footer>
       </main>
     </>

@@ -51,7 +51,7 @@ export async function GET(request: NextRequest) {
       description: goodDeeds.description,
       mood: goodDeeds.mood,
       impact: goodDeeds.impact,
-      deedDate: goodDeeds.deedDate,
+      deedDate: sql`to_char(${goodDeeds.deedDate}, 'YYYY-MM-DD')`,
     })
     .from(goodDeeds)
     .where(and(...conditions))

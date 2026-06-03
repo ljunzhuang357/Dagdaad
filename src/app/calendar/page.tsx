@@ -16,25 +16,37 @@ export default function KalenderPage() {
     Record<number, { emoji?: string; text: string }>
   >({});
   const [selectedDay, setSelectedDay] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
 
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const firstDay = (new Date(year, month, 1).getDay() + 6) % 7;
 
   useEffect(() => {
     const m = `${year}-${String(month + 1).padStart(2, "0")}`;
+    setLoading(true);
     fetch(`/api/deeds?month=${m}&limit=31`)
-      .then((r) => r.json())
+      .then((r) => {
+        if (r.status === 401) {
+          window.location.href = "/login";
+          return null;
+        }
+        return r.json();
+      })
       .then((data) => {
+        if (!data) return;
         const map: Record<number, { text: string }> = {};
         (data.deeds || []).forEach((d: any) => {
-          const day = new Date(d.deed_date).getDate();
+          // deed_date 格式 "2026-06-02"，直接取日期数字，避免时区问题
+          const day = parseInt(d.deedDate.split("-")[2], 10);
           map[day] = {
             text: d.description,
             ...(d.mood ? { emoji: d.mood } : {}),
           };
         });
         setEntries(map);
-      });
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
   }, [year, month]);
 
   const prevMonth = () => {
@@ -102,15 +114,9 @@ export default function KalenderPage() {
               key={day}
               onClick={() => setSelectedDay(isSelected ? null : day)}
               className={`aspect-square flex flex-col items-center justify-center rounded-xl text-sm transition-all cursor-pointer
-                ${
-                  isSelected
-                    ? "ring-2 ring-[var(--accent-orange)] bg-[#FFF0E0]"
-                    : ""
-                }
-                ${hasEntry && !isSelected ? "bg-[var(--gradient-card)]" : ""}
-                ${
-                  !hasEntry && !isSelected ? "hover:bg-[#F5F0E8]" : ""
-                }`}
+                ${isSelected ? "ring-2 ring-[var(--accent-orange)] bg-[#FFF0E0]" : ""}
+                ${hasEntry && !isSelected ? "bg-[#FFE0B2]" : ""}
+                ${!hasEntry && !isSelected ? "hover:bg-[#F5F0E8]" : ""}`}
             >
               <span
                 className={
@@ -120,12 +126,18 @@ export default function KalenderPage() {
                 {day}
               </span>
               {hasEntry && (
-                <span className="text-xs">{entries[day].emoji || "🌟"}</span>
+                <span className="text-[10px] leading-none mt-0.5">
+                  {entries[day].emoji || "●"}
+                </span>
               )}
             </button>
           );
         })}
       </div>
+
+      {loading && (
+        <p className="text-xs text-[var(--text-secondary)] mt-4">laden…</p>
+      )}
 
       {entry && (
         <div className="card w-full mt-6 text-center">

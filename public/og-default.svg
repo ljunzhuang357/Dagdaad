@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF3E0"/>
+      <stop offset="50%" style="stop-color:#FFE0EC"/>
+      <stop offset="100%" style="stop-color:#E8E0FF"/>
+    </linearGradient>
+    <linearGradient id="text" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF8C42"/>
+      <stop offset="100%" style="stop-color:#FF6B9D"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" rx="0"/>
+  <text x="600" y="220" text-anchor="middle" font-size="80" font-family="system-ui, sans-serif">✨</text>
+  <text x="600" y="320" text-anchor="middle" font-size="56" font-weight="bold" font-family="system-ui, sans-serif" fill="#2D2D2D">Elke dag een</text>
+  <text x="600" y="390" text-anchor="middle" font-size="56" font-weight="bold" font-family="system-ui, sans-serif" fill="url(#text)">goede daad</text>
+  <text x="600" y="460" text-anchor="middle" font-size="24" font-family="system-ui, sans-serif" fill="#6B6B6B">Noteer elke dag een goede daad. Zie je spoor van vriendelijkheid.</text>
+  <text x="600" y="530" text-anchor="middle" font-size="32" font-family="system-ui, sans-serif" fill="#6B6B6B">☕ 🌻 🎈 🍪 🌈 🦋</text>
+</svg>

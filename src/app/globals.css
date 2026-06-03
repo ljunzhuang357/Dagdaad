@@ -12,6 +12,10 @@
   --accent-yellow: #FFD93D;
   --gradient-hero: linear-gradient(135deg, #FFF3E0 0%, #FFE0EC 50%, #E8E0FF 100%);
   --gradient-card: linear-gradient(135deg, #FFF8E7 0%, #FFE8D6 100%);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
 }
 
 @theme inline {
@@ -21,10 +25,36 @@
   --font-mono: "SF Mono", Monaco, "Cascadia Code", Consolas, monospace;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   background: var(--bg-warm);
   color: var(--text-primary);
   font-family: Arial, Helvetica, sans-serif;
+  overscroll-behavior: none;
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+}
+
+/* Mobile-friendly touch targets */
+button, a, input, textarea, select {
+  font-size: 16px; /* prevent iOS zoom on focus */
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.1);
+  border-radius: 3px;
 }
 
 .card {
@@ -38,6 +68,10 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(0,0,0,0.1);
 }
+.card:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
 
 .btn-primary {
   background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink));
@@ -46,10 +80,18 @@ body {
   padding: 0.75rem 1.75rem;
   border-radius: 999px;
   transition: opacity 0.2s, transform 0.2s;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .btn-primary:hover {
   opacity: 0.9;
   transform: scale(1.03);
+}
+.btn-primary:active {
+  transform: scale(0.98);
+  opacity: 0.85;
 }
 
 .btn-ghost {
@@ -59,9 +101,16 @@ body {
   padding: 0.75rem 1.25rem;
   border-radius: 999px;
   transition: background 0.2s;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .btn-ghost:hover {
   background: rgba(0,0,0,0.05);
+}
+.btn-ghost:active {
+  background: rgba(0,0,0,0.08);
 }
 
 .input-field {
@@ -83,4 +132,36 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Mobile slide-in animation */
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.animate-slide-in {
+  animation: slide-in 0.2s ease-out;
+}
+
+/* Prevent body scroll when mobile menu open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Better calendar touch targets on mobile */
+@media (max-width: 640px) {
+  .btn-primary, .btn-ghost {
+    padding: 0.875rem 1.5rem;
+  }
+  .card {
+    padding: 1.25rem;
+    border-radius: 20px;
+  }
+  .input-field {
+    padding: 0.875rem 1.125rem;
+  }
 }

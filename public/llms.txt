@@ -1,0 +1,18 @@
+# Dagdaad
+> Noteer elke dag één goede daad. Een vriendelijkheids-dagboek.
+
+## Belangrijke pagina's
+
+- [Home](https://dagdaad.nl/) — Startpagina met uitleg over Dagdaad
+- [Schrijven](https://dagdaad.nl/write) — Noteer je dagelijkse goede daad
+- [Kalender](https://dagdaad.nl/calendar) — Maandelijks overzicht van goede daden
+- [Statistieken](https://dagdaad.nl/stats) — Overzicht van patronen en streaks
+- [Inloggen](https://dagdaad.nl/login) — Log in of maak een account
+
+## Over Dagdaad
+
+Dagdaad is een Nederlandse webapplicatie waarmee je elke dag één goede daad noteert die je voor iemand anders deed. Het helpt je om vriendelijkheid zichtbaar te maken en een positief patroon te ontdekken.
+
+- 30 goede daden per maand gratis
+- Pro: €3,99/maand of €29/jaar — onbeperkt noteren, archief, PDF jaaroverzicht, export
+- Alleen Nederlands

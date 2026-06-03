@@ -56,6 +56,31 @@
       },
       "footnote": "Maandelijks €3,99 of jaarlijks €29. Altijd opzegbaar."
     },
+    "faq": {
+      "title": "Veelgestelde vragen 💬",
+      "items": [
+        {
+          "q": "Wat is Dagdaad?",
+          "a": "Dagdaad is een dagelijkse vriendelijkheids-dagboek. Je noteert elke dag één goede daad die je voor iemand anders deed. Het helpt je om vriendelijkheid zichtbaar te maken en een positief patroon te ontdekken."
+        },
+        {
+          "q": "Is Dagdaad gratis?",
+          "a": "Ja, je kunt 30 goede daden per maand gratis noteren. Wil je terugkijken naar eerdere maanden, jaaroverzichten of exporteren? Dan kun je overstappen naar Pro voor €3,99 per maand of €29 per jaar."
+        },
+        {
+          "q": "Hoe noteer ik een goede daad?",
+          "a": "Ga naar de 'Schrijven' pagina, beschrijf wat je hebt gedaan, kies hoe je je voelt en geef aan wat voor impact het had. In drie stappen is je goede daad opgeslagen."
+        },
+        {
+          "q": "Kan ik terugkijken naar vorige maanden?",
+          "a": "Ja, met een Pro-abonnement kun je alle maanden terugkijken via de kalender. Ook krijg je een jaaroverzicht in PDF en kun je je data exporteren als CSV of JSON."
+        },
+        {
+          "q": "Waarom zou ik goede daden noteren?",
+          "a": "Onderzoek uit de positieve psychologie laat zien dat het bewust registreren van vriendelijke acties ons geluksgevoel verhoogt, ons meer verbonden laat voelen en ons aanmoedigt om vaker iets goeds te doen."
+        }
+      ]
+    },
     "footer": {
       "line1": "✨ Dagdaad — noteer vriendelijkheid, maak het waar.",
       "line2": "Als je het opschrijft, gebeurt het."

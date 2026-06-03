@@ -11,24 +11,43 @@ export default function StatsPage() {
     thisMonth: 0,
     recent: [] as { emoji?: string; text: string; date: string }[],
   });
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    Promise.all([
-      fetch("/api/deeds?limit=999").then((r) => r.json()),
-      fetch(
-        `/api/deeds?month=${new Date().toISOString().slice(0, 7)}&limit=999`
-      ).then((r) => r.json()),
-    ]).then(([allData, monthData]) => {
-      const all = allData.deeds || [];
-      const month = monthData.deeds || [];
-      const recent = all.slice(0, 5).map((d: any) => ({
-        emoji: d.mood || undefined,
-        text: d.description,
-        date: d.deed_date,
-      }));
-      setStats({ total: all.length, thisMonth: month.length, recent });
-    });
+    const thisMonth = new Date().toISOString().slice(0, 7);
+
+    fetch(`/api/deeds?limit=999`)
+      .then((r) => {
+        if (r.status === 401) {
+          window.location.href = "/login";
+          return null;
+        }
+        return r.json();
+      })
+      .then((data) => {
+        if (!data) return;
+        const all = data.deeds || [];
+        const month = all.filter(
+          (d: any) => d.deedDate && d.deedDate.startsWith(thisMonth)
+        );
+        const recent = all.slice(0, 5).map((d: any) => ({
+          emoji: d.mood || undefined,
+          text: d.description,
+          date: d.deedDate,
+        }));
+        setStats({ total: all.length, thisMonth: month.length, recent });
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex-1 flex items-center justify-center">
+        <p className="text-[var(--text-secondary)]">laden…</p>
+      </div>
+    );
+  }
 
   return (
     <div className="flex-1 flex flex-col items-center px-6 py-8 max-w-lg mx-auto w-full">
@@ -90,10 +109,7 @@ export default function StatsPage() {
         <Link href="/write" className="btn-primary">
           {t("ctaWrite")}
         </Link>
-        <Link
-          href="/calendar"
-          className="btn-ghost border border-[#E8E0D0]"
-        >
+        <Link href="/calendar" className="btn-ghost border border-[#E8E0D0]">
           {t("ctaCalendar")}
         </Link>
       </div>

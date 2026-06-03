@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8C42"/>
+      <stop offset="100%" stop-color="#FF6B9D"/>
+    </linearGradient>
+  </defs>
+  <!-- 星星主体 -->
+  <path d="M50 8 L60 38 L92 38 L66 58 L75 90 L50 70 L25 90 L34 58 L8 38 L40 38 Z" fill="url(#g)"/>
+</svg>
