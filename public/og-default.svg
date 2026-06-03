@@ -11,7 +11,7 @@
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)" rx="0"/>
-  <text x="600" y="220" text-anchor="middle" font-size="80" font-family="system-ui, sans-serif">✨</text>
+  <image href="/logo.png" x="520" y="140" width="160" height="160"/>
   <text x="600" y="320" text-anchor="middle" font-size="56" font-weight="bold" font-family="system-ui, sans-serif" fill="#2D2D2D">Elke dag een</text>
   <text x="600" y="390" text-anchor="middle" font-size="56" font-weight="bold" font-family="system-ui, sans-serif" fill="url(#text)">goede daad</text>
   <text x="600" y="460" text-anchor="middle" font-size="24" font-family="system-ui, sans-serif" fill="#6B6B6B">Noteer elke dag een goede daad. Zie je spoor van vriendelijkheid.</text>

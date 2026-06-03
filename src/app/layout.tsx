@@ -47,6 +47,10 @@ export const metadata: Metadata = {
       "Noteer elke dag één goede daad die je voor iemand deed.",
     images: ["/og-default.svg"],
   },
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
   robots: {
     index: true,
     follow: true,
