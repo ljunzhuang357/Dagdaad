@@ -12,6 +12,7 @@
     "subtitle": "Wat heb jij vandaag voor een ander gedaan? Een klein gebaar, een luisterend oor, een verrassing. Alles telt.",
     "cta": "Schrijf je goede daad ✍️",
     "howItWorks": "Hoe het werkt 🧩",
+    "stepLabel": "Stap {n}",
     "steps": [
       {
         "emoji": "✍️",
@@ -142,13 +143,11 @@
   },
   "stats": {
     "title": "📊 Mijn statistieken",
-    "total": "Totaal goede daden",
-    "thisMonth": "Deze maand",
-    "streak": "Huidige streak (dagen)",
-    "longestStreak": "Langste streak",
-    "mostUsed": "Meest gebruikt",
+    "totalLabel": "In totaal heb je",
+    "thisMonth": "{n} deze maand",
+    "rhythm": "Ritme",
     "recentTitle": "Recente goede daden",
-    "empty": "Nog geen notities. Begin met de eerste! ✍️",
+    "empty": "Nog geen notities. Elke reis begint met een eerste stap 🌱",
     "ctaWrite": "Noteer een nieuwe ✍️",
     "ctaCalendar": "Bekijk kalender 📅"
   },

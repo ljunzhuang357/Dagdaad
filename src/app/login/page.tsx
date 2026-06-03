@@ -79,7 +79,7 @@ export default function LoginPage() {
               <button
                 onClick={signInGoogle}
                 disabled={loading}
-                className="w-full flex items-center justify-center gap-3 border-2 border-[#E8E0D0] rounded-xl py-3 px-4 hover:bg-[#F5F0E8] transition-colors disabled:opacity-50 mb-4 cursor-pointer"
+                className="btn-ghost w-full flex items-center justify-center gap-3 mb-4 cursor-pointer"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24">
                   <path

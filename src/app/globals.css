@@ -32,7 +32,7 @@
 body {
   background: var(--bg-warm);
   color: var(--text-primary);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   overscroll-behavior: none;
   padding-top: var(--safe-top);
   padding-bottom: var(--safe-bottom);
@@ -128,10 +128,7 @@ button, a, input, textarea, select {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent-orange);
 }
 
 /* Mobile slide-in animation */

@@ -50,14 +50,19 @@ export default function Home() {
           <h2 className="text-2xl font-bold text-center mb-10">
             {t("howItWorks")}
           </h2>
-          <div className="grid sm:grid-cols-3 gap-6">
+          <div className="flex flex-col gap-4">
             {steps.map((item, i) => (
-              <div key={i} className="card text-center">
-                <span className="text-3xl mb-3 block" aria-hidden="true">{item.emoji}</span>
-                <h3 className="font-bold mb-2">{item.title}</h3>
-                <p className="text-sm text-[var(--text-secondary)]">
-                  {item.desc}
-                </p>
+              <div key={i} className="flex items-start gap-5 p-6 bg-white rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.04)]">
+                <span className="text-2xl mt-0.5 shrink-0" aria-hidden="true">{item.emoji}</span>
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-[var(--accent-orange)]">
+                    {t("stepLabel", { n: i + 1 })}
+                  </span>
+                  <h3 className="font-bold text-base mt-0.5">{item.title}</h3>
+                  <p className="text-sm text-[var(--text-secondary)] mt-1">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -71,8 +76,8 @@ export default function Home() {
               {t("pricing.subtitle")}
             </p>
             <div className="grid sm:grid-cols-2 gap-6 text-left">
-              <div className="card border-2 border-[var(--accent-yellow)] relative">
-                <span className="absolute -top-3 -right-3 bg-[var(--accent-yellow)] text-sm px-3 py-1 rounded-full font-bold">
+              <div className="card border-2 border-[var(--accent-orange)]/30 relative">
+                <span className="absolute -top-3 -right-3 bg-[var(--accent-orange)] text-white text-sm px-3 py-1 rounded-full font-bold">
                   🌟 {t("pricing.free.badge")}
                 </span>
                 <p className="text-3xl font-bold mb-1">

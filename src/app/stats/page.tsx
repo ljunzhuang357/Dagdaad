@@ -43,8 +43,17 @@ export default function StatsPage() {
 
   if (loading) {
     return (
-      <div className="flex-1 flex items-center justify-center">
-        <p className="text-[var(--text-secondary)]">laden…</p>
+      <div className="flex-1 flex flex-col items-center px-6 py-8 max-w-lg mx-auto w-full">
+        <div className="w-48 h-7 rounded-lg bg-[#E8E0D0] animate-pulse mb-8" />
+        <div className="card w-full mb-6 text-center">
+          <div className="w-24 h-4 mx-auto rounded bg-[#E8E0D0] animate-pulse mb-3" />
+          <div className="w-16 h-10 mx-auto rounded bg-[#E8E0D0] animate-pulse" />
+        </div>
+        <div className="w-full space-y-2">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="card h-16 bg-[#E8E0D0] animate-pulse" />
+          ))}
+        </div>
       </div>
     );
   }
@@ -53,45 +62,44 @@ export default function StatsPage() {
     <div className="flex-1 flex flex-col items-center px-6 py-8 max-w-lg mx-auto w-full">
       <h1 className="text-2xl font-bold mb-8">{t("title")}</h1>
 
-      <div className="card text-center w-full mb-4">
-        <span className="text-5xl font-bold gradient-text">{stats.total}</span>
-        <p className="text-[var(--text-secondary)] mt-1">{t("total")}</p>
+      <div className="card w-full mb-6 text-center">
+        <p className="text-[var(--text-secondary)] text-sm">{t("totalLabel")}</p>
+        <p className="text-5xl font-bold text-[var(--accent-orange)] mt-1">{stats.total}</p>
+        {stats.thisMonth > 0 && (
+          <p className="text-xs text-[var(--text-secondary)] mt-2">
+            {t("thisMonth", { n: stats.thisMonth })}
+          </p>
+        )}
       </div>
 
-      <div className="grid grid-cols-2 gap-3 w-full mb-4">
-        <div className="card text-center">
-          <span className="text-2xl font-bold">{stats.thisMonth}</span>
-          <p className="text-xs text-[var(--text-secondary)]">
-            {t("thisMonth")}
-          </p>
+      {stats.recent.length >= 7 && (
+        <div className="w-full mb-6">
+          <h2 className="text-sm font-semibold text-[var(--text-secondary)] mb-2">{t("rhythm")}</h2>
+          <div className="flex gap-1.5">
+            {Array.from({ length: Math.min(stats.recent.length, 14) }).map((_, i) => (
+              <div
+                key={i}
+                className="flex-1 h-8 rounded-lg"
+                style={{
+                  background: `linear-gradient(180deg, var(--accent-orange) 0%, var(--accent-pink) 100%)`,
+                  opacity: Math.max(0.3, 1 - i * 0.05),
+                }}
+              />
+            ))}
+          </div>
         </div>
-        <div className="card text-center">
-          <span className="text-2xl font-bold">🔥 —</span>
-          <p className="text-xs text-[var(--text-secondary)]">
-            {t("streak")}
-          </p>
-        </div>
-        <div className="card text-center">
-          <span className="text-2xl font-bold">🏆 —</span>
-          <p className="text-xs text-[var(--text-secondary)]">
-            {t("longestStreak")}
-          </p>
-        </div>
-        <div className="card text-center">
-          <span className="text-2xl font-bold">—</span>
-          <p className="text-xs text-[var(--text-secondary)]">
-            {t("mostUsed")}
-          </p>
-        </div>
-      </div>
+      )}
 
       <div className="w-full mb-8">
         <h2 className="font-bold mb-3">{t("recentTitle")}</h2>
         <div className="space-y-2">
           {stats.recent.length === 0 && (
-            <p className="text-sm text-[var(--text-secondary)] text-center py-4">
-              {t("empty")}
-            </p>
+            <div className="card text-center py-8">
+              <span className="text-3xl block mb-2">🌱</span>
+              <p className="text-sm text-[var(--text-secondary)]">
+                {t("empty")}
+              </p>
+            </div>
           )}
           {stats.recent.map((e, i) => (
             <div key={i} className="card flex items-center gap-3 py-3">

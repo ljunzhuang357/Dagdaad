@@ -136,7 +136,13 @@ export default function KalenderPage() {
       </div>
 
       {loading && (
-        <p className="text-xs text-[var(--text-secondary)] mt-4">laden…</p>
+        <div className="w-full mt-4 space-y-2">
+          <div className="grid grid-cols-7 gap-1">
+            {Array.from({ length: 35 }).map((_, i) => (
+              <div key={i} className="aspect-square rounded-xl bg-[#E8E0D0] animate-pulse" />
+            ))}
+          </div>
+        </div>
       )}
 
       {entry && (
@@ -150,8 +156,9 @@ export default function KalenderPage() {
       )}
 
       {!entry && selectedDay && (
-        <div className="card w-full mt-6 text-center text-[var(--text-secondary)]">
-          <p>{t("empty")}</p>
+        <div className="card w-full mt-6 text-center">
+          <span className="text-3xl block mb-2">🌸</span>
+          <p className="text-sm text-[var(--text-secondary)]">{t("empty")}</p>
         </div>
       )}
 
