@@ -173,5 +173,17 @@
       "sendError": "Versturen verificatiecode mislukt, probeer opnieuw",
       "verifyError": "Verifiëren mislukt, probeer opnieuw"
     }
+  },
+  "share": {
+    "shareSheet": "Deel via...",
+    "whatsapp": "WhatsApp",
+    "downloadImage": "Afbeelding opslaan",
+    "streakShareText": "Ik heb een streak van {streak} dagen op Dagdaad! Elke dag een goede daad. Doe ook mee! 🌟 dagdaad.nl",
+    "inviteShareText": "Doe ook mee met Dagdaad — noteer elke dag een goede daad! 🌟 dagdaad.nl",
+    "referralTitle": "👥 Nodig vrienden uit",
+    "referralDesc": "Nodig een vriend uit en jullie krijgen allebei +5 goede daden extra per maand!",
+    "referralCopied": "Gekopieerd!",
+    "streakTitle": "Deel je streak",
+    "downloadHint": "Houd de afbeelding ingedrukt om op te slaan"
   }
 }

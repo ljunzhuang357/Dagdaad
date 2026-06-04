@@ -57,7 +57,7 @@ export default function StatsPage() {
 
   if (loading) {
     return (
-      <div className="flex-1 flex flex-col items-center px-6 py-8 max-w-lg mx-auto w-full">
+      <div className="flex-1 flex flex-col items-center px-6 pt-8 pb-16 max-w-lg mx-auto w-full">
         <div className="w-48 h-7 rounded-lg bg-[#E8E0D0] animate-pulse mb-8" />
         <div className="card w-full mb-6 text-center">
           <div className="w-24 h-4 mx-auto rounded bg-[#E8E0D0] animate-pulse mb-3" />
@@ -215,6 +215,26 @@ export default function StatsPage() {
                 className="flex-1 bg-transparent text-sm outline-none min-w-0"
                 onClick={(e) => e.currentTarget.select()}
               />
+              <button
+                onClick={async () => {
+                  if (navigator.share) {
+                    try {
+                      await navigator.share({
+                        title: "Dagdaad",
+                        text: "Doe ook mee met Dagdaad — noteer elke dag een goede daad! 🌟",
+                        url: referral.url,
+                      });
+                    } catch {
+                      /* user cancelled */
+                    }
+                  } else {
+                    navigator.clipboard.writeText(referral.url);
+                  }
+                }}
+                className="btn-ghost border border-[#E8E0D0] text-xs shrink-0 cursor-pointer"
+              >
+                📱 Deel
+              </button>
               <button
                 onClick={() => {
                   navigator.clipboard.writeText(referral.url);

@@ -89,7 +89,7 @@ export default function JaaroverzichtPage() {
   }
 
   return (
-    <div className="flex-1 px-6 py-8 max-w-xl mx-auto w-full">
+    <div className="flex-1 px-6 pt-8 pb-16 max-w-xl mx-auto w-full">
       {/* Header */}
       <div className="flex items-center justify-between mb-8 print:mb-4">
         <div>

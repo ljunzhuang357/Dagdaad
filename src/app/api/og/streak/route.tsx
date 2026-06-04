@@ -49,8 +49,14 @@ export async function GET(request: NextRequest) {
         <div style={{ fontSize: 20, color: "#2D2D2D", fontWeight: 600 }}>
           {msg}
         </div>
-        <div style={{ marginTop: "auto", fontSize: 14, color: "#999", display: "flex", gap: 4 }}>
-          <span>dagdaad.nl</span>
+        <div style={{ marginTop: "auto", display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+          <div style={{ fontSize: 16, color: "#FF8C42", fontWeight: 700, display: "flex", gap: 6, alignItems: "center" }}>
+            <span>Doe ook mee</span>
+            <span style={{ fontSize: 18 }}>→</span>
+          </div>
+          <div style={{ fontSize: 14, color: "#999" }}>
+            dagdaad.nl
+          </div>
         </div>
       </div>
     ),

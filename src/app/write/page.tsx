@@ -112,6 +112,14 @@ export default function SchrijvenPage() {
     }
   }, [t]);
 
+  // Dismiss keyboard + scroll to top on step change (mobile)
+  useEffect(() => {
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [step]);
+
   // Over limit — show pricing modal
   useEffect(() => {
     if (!quotaLoading && quota && !quota.isPro && quota.remaining <= 0) {
@@ -167,8 +175,18 @@ export default function SchrijvenPage() {
   if (saved) {
     const shareUrl = streak ? `/api/og/streak?s=${streak}` : null;
 
+    const doWebShare = async (text: string, url: string) => {
+      if (typeof navigator !== "undefined" && navigator.share) {
+        try {
+          await navigator.share({ title: "Dagdaad", text, url });
+        } catch {
+          /* user cancelled */
+        }
+      }
+    };
+
     return (
-      <div className="flex-1 flex items-center justify-center px-6 text-center">
+      <div className="flex-1 flex items-center justify-center px-6 pb-12 text-center">
         <div>
           <span className="text-6xl block mb-6">🌟</span>
           <h1 className="text-3xl font-bold mb-3">{t("savedTitle")}</h1>
@@ -178,35 +196,80 @@ export default function SchrijvenPage() {
 
           {/* Streak share card */}
           {shareUrl && streak && streak > 0 && (
-            <div className="mb-6">
-              <a
-                href={shareUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block mx-auto rounded-2xl overflow-hidden shadow-lg max-w-[240px] hover:opacity-90 transition-opacity"
-              >
+            <>
+              <div className="mb-4 mx-auto max-w-[300px] sm:max-w-xs rounded-2xl overflow-hidden shadow-lg">
                 <img
                   src={shareUrl}
                   alt={`${streak} dagen op rij!`}
                   className="w-full"
-                  width={240}
-                  height={240}
                 />
-              </a>
-              <p className="text-xs text-[var(--text-secondary)] mt-2">
-                {streak} dagen op rij! Tik op de kaart om te delen
-              </p>
-            </div>
+              </div>
+
+              {/* Share buttons */}
+              <div className="flex gap-2 justify-center flex-wrap mb-6">
+                <button
+                  onClick={() =>
+                    doWebShare(
+                      `Ik heb een streak van ${streak} dagen op Dagdaad! Elke dag een goede daad. Doe ook mee! 🌟`,
+                      "https://dagdaad.nl"
+                    )
+                  }
+                  className="btn-primary text-sm cursor-pointer"
+                >
+                  📱 Deel via...
+                </button>
+                <a
+                  href={`https://wa.me/?text=${encodeURIComponent(
+                    `Ik heb een streak van ${streak} dagen op Dagdaad! Elke dag een goede daad. Doe ook mee! 🌟 dagdaad.nl`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ghost border border-[#E8E0D0] text-sm inline-flex items-center cursor-pointer"
+                >
+                  💬 WhatsApp
+                </a>
+                <a
+                  href={shareUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ghost border border-[#E8E0D0] text-sm inline-flex items-center cursor-pointer"
+                >
+                  💾 Opslaan
+                </a>
+              </div>
+            </>
           )}
+
+          {/* Referral invite */}
+          <div className="card mb-6 text-left">
+            <h3 className="font-bold text-sm mb-1">👥 Nodig vrienden uit</h3>
+            <p className="text-xs text-[var(--text-secondary)] mb-3">
+              Nodig een vriend uit en jullie krijgen allebei{" "}
+              <strong>+5 goede daden</strong> extra per maand!
+            </p>
+            <div className="flex gap-2">
+              <button
+                onClick={() =>
+                  doWebShare(
+                    "Doe ook mee met Dagdaad — noteer elke dag een goede daad! 🌟",
+                    "https://dagdaad.nl"
+                  )
+                }
+                className="btn-primary text-sm cursor-pointer"
+              >
+                📱 Deel link
+              </button>
+              <Link href="/stats" className="btn-ghost border border-[#E8E0D0] text-sm">
+                Bekijk →
+              </Link>
+            </div>
+          </div>
 
           <div className="flex gap-3 justify-center flex-wrap">
             <Link href="/write" className="btn-primary">
               {t("writeAnother")}
             </Link>
-            <Link
-              href="/calendar"
-              className="btn-ghost border border-[#E8E0D0]"
-            >
+            <Link href="/calendar" className="btn-ghost border border-[#E8E0D0]">
               {t("viewCalendar")}
             </Link>
           </div>

@@ -68,6 +68,7 @@ body {
   padding-bottom: var(--safe-bottom);
   padding-left: var(--safe-left);
   padding-right: var(--safe-right);
+  min-height: 100dvh;
 }
 
 /* Mobile-friendly touch targets */

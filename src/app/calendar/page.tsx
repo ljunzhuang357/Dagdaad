@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import PricingModal from "@/components/PricingModal";
@@ -24,6 +24,7 @@ export default function KalenderPage() {
     monthlyLimit: number;
   } | null>(null);
   const [showPricing, setShowPricing] = useState(false);
+  const touchStartX = useRef(0);
 
   const isCurrentMonth =
     year === now.getFullYear() && month === now.getMonth();
@@ -85,7 +86,7 @@ export default function KalenderPage() {
   const entry = selectedDay ? entries[selectedDay] : null;
 
   return (
-    <div className="flex-1 flex flex-col items-center px-6 py-8 max-w-lg mx-auto w-full">
+    <div className="flex-1 flex flex-col items-center px-6 pt-8 pb-16 max-w-lg mx-auto w-full">
       <div className="flex items-center justify-between w-full mb-6">
         <button
           onClick={prevMonth}
@@ -130,53 +131,67 @@ export default function KalenderPage() {
             </p>
           )}
 
-          <div className="grid grid-cols-7 w-full mb-2">
-            {DAYS_NL.map((d) => (
-              <div
-                key={d}
-                className="text-center text-xs text-[var(--text-secondary)] py-1"
-              >
-                {d}
-              </div>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-7 w-full gap-1">
-            {Array.from({ length: firstDay }).map((_, i) => (
-              <div key={`e-${i}`} />
-            ))}
-            {Array.from({ length: daysInMonth }).map((_, i) => {
-              const day = i + 1;
-              const hasEntry = !!entries[day];
-              const isSelected = selectedDay === day;
-              const isToday =
-                day === now.getDate() &&
-                month === now.getMonth() &&
-                year === now.getFullYear();
-              return (
-                <button
-                  key={day}
-                  onClick={() => setSelectedDay(isSelected ? null : day)}
-                  className={`aspect-square flex flex-col items-center justify-center rounded-xl text-sm transition-all cursor-pointer
-                    ${isSelected ? "ring-2 ring-[var(--accent-orange)] bg-[#FFF0E0]" : ""}
-                    ${hasEntry && !isSelected ? "bg-[#FFE0B2]" : ""}
-                    ${!hasEntry && !isSelected ? "hover:bg-[#F5F0E8]" : ""}`}
+          <div
+            onTouchStart={(e) => {
+              touchStartX.current = e.touches[0].clientX;
+            }}
+            onTouchEnd={(e) => {
+              const diffX = e.changedTouches[0].clientX - touchStartX.current;
+              // 50px threshold — taps won't trigger, only intentional swipes
+              if (Math.abs(diffX) > 50) {
+                if (diffX > 0) prevMonth();
+                else nextMonth();
+              }
+            }}
+          >
+            <div className="grid grid-cols-7 w-full mb-2">
+              {DAYS_NL.map((d) => (
+                <div
+                  key={d}
+                  className="text-center text-xs text-[var(--text-secondary)] py-1"
                 >
-                  <span
-                    className={
-                      isToday ? "font-bold text-[var(--accent-orange)]" : ""
-                    }
+                  {d}
+                </div>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-7 w-full gap-1">
+              {Array.from({ length: firstDay }).map((_, i) => (
+                <div key={`e-${i}`} />
+              ))}
+              {Array.from({ length: daysInMonth }).map((_, i) => {
+                const day = i + 1;
+                const hasEntry = !!entries[day];
+                const isSelected = selectedDay === day;
+                const isToday =
+                  day === now.getDate() &&
+                  month === now.getMonth() &&
+                  year === now.getFullYear();
+                return (
+                  <button
+                    key={day}
+                    onClick={() => setSelectedDay(isSelected ? null : day)}
+                    className={`aspect-square flex flex-col items-center justify-center rounded-xl text-sm transition-all cursor-pointer
+                      ${isSelected ? "ring-2 ring-[var(--accent-orange)] bg-[#FFF0E0]" : ""}
+                      ${hasEntry && !isSelected ? "bg-[#FFE0B2]" : ""}
+                      ${!hasEntry && !isSelected ? "hover:bg-[#F5F0E8]" : ""}`}
                   >
-                    {day}
-                  </span>
-                  {hasEntry && (
-                    <span className="text-[10px] leading-none mt-0.5">
-                      {entries[day].emoji || "●"}
+                    <span
+                      className={
+                        isToday ? "font-bold text-[var(--accent-orange)]" : ""
+                      }
+                    >
+                      {day}
                     </span>
-                  )}
-                </button>
-              );
-            })}
+                    {hasEntry && (
+                      <span className="text-[10px] leading-none mt-0.5">
+                        {entries[day].emoji || "●"}
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {loading && (
