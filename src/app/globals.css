@@ -18,6 +18,36 @@
   --safe-right: env(safe-area-inset-right, 0px);
 }
 
+/* Forest theme */
+[data-theme="forest"] {
+  --bg-warm: #F0F7E6;
+  --bg-card: #FFFFFF;
+  --text-primary: #2D3D2D;
+  --text-secondary: #5A6B5A;
+  --accent-orange: #7CB342;
+  --accent-pink: #66BB6A;
+  --accent-purple: #8D6E63;
+  --accent-blue: #26A69A;
+  --accent-yellow: #FFCA28;
+  --gradient-hero: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 50%, #DCEDC8 100%);
+  --gradient-card: linear-gradient(135deg, #F1F8E9 0%, #DCEDC8 100%);
+}
+
+/* Ocean theme */
+[data-theme="ocean"] {
+  --bg-warm: #E8F4F8;
+  --bg-card: #FFFFFF;
+  --text-primary: #1A2A3A;
+  --text-secondary: #4A6A7A;
+  --accent-orange: #4FC3F7;
+  --accent-pink: #4DD0E1;
+  --accent-purple: #7986CB;
+  --accent-blue: #4DD0E1;
+  --accent-yellow: #FFB74D;
+  --gradient-hero: linear-gradient(135deg, #E0F7FA 0%, #B2EBF2 50%, #C5CAE9 100%);
+  --gradient-card: linear-gradient(135deg, #E0F7FA 0%, #B2DFDB 100%);
+}
+
 @theme inline {
   --color-background: var(--bg-warm);
   --color-foreground: var(--text-primary);

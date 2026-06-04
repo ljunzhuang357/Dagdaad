@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import PricingModal from "@/components/PricingModal";
 
 export default function StatsPage() {
   const t = useTranslations("stats");
@@ -11,21 +12,31 @@ export default function StatsPage() {
     thisMonth: 0,
     recent: [] as { emoji?: string; text: string; date: string }[],
   });
+  const [quota, setQuota] = useState<{
+    isPro: boolean;
+    monthlyUsed: number;
+    monthlyLimit: number;
+  } | null>(null);
   const [loading, setLoading] = useState(true);
+  const [showPricing, setShowPricing] = useState(false);
 
   useEffect(() => {
     const thisMonth = new Date().toISOString().slice(0, 7);
 
-    fetch(`/api/deeds?limit=999`)
-      .then((r) => {
+    Promise.all([
+      fetch(`/api/deeds?limit=999`).then((r) => {
         if (r.status === 401) {
           window.location.href = "/login";
           return null;
         }
         return r.json();
-      })
-      .then((data) => {
+      }),
+      fetch("/api/quota").then((r) => (r.ok ? r.json() : null)),
+    ])
+      .then(([data, quotaData]) => {
         if (!data) return;
+        if (quotaData) setQuota(quotaData);
+
         const all = data.deeds || [];
         const month = all.filter(
           (d: any) => d.deedDate && d.deedDate.startsWith(thisMonth)
@@ -60,14 +71,38 @@ export default function StatsPage() {
 
   return (
     <div className="flex-1 flex flex-col items-center px-6 py-8 max-w-lg mx-auto w-full">
-      <h1 className="text-2xl font-bold mb-8">{t("title")}</h1>
+      <div className="flex items-center gap-2 mb-8">
+        <h1 className="text-2xl font-bold">{t("title")}</h1>
+        {quota?.isPro && (
+          <span className="text-xs bg-[var(--accent-orange)] text-white px-2 py-0.5 rounded-full font-semibold">
+            Pro
+          </span>
+        )}
+      </div>
+
+      {quota && !quota.isPro && (
+        <div className="w-full mb-6 text-xs text-[var(--text-secondary)] text-center">
+          Je ziet alleen de huidige maand.{" "}
+          <a href="/" className="text-[var(--accent-orange)] underline">
+            Upgrade naar Pro
+          </a>{" "}
+          voor het volledige overzicht.
+        </div>
+      )}
 
       <div className="card w-full mb-6 text-center">
         <p className="text-[var(--text-secondary)] text-sm">{t("totalLabel")}</p>
-        <p className="text-5xl font-bold text-[var(--accent-orange)] mt-1">{stats.total}</p>
+        <p className="text-5xl font-bold text-[var(--accent-orange)] mt-1">
+          {quota?.isPro ? stats.total : stats.thisMonth}
+        </p>
         {stats.thisMonth > 0 && (
           <p className="text-xs text-[var(--text-secondary)] mt-2">
             {t("thisMonth", { n: stats.thisMonth })}
+          </p>
+        )}
+        {quota?.isPro && stats.total > stats.thisMonth && (
+          <p className="text-xs text-[var(--text-secondary)] mt-1">
+            {stats.total} totaal
           </p>
         )}
       </div>
@@ -113,6 +148,55 @@ export default function StatsPage() {
         </div>
       </div>
 
+      {/* Pro features */}
+      <div className="w-full mb-6 card print:shadow-none">
+        <h2 className="font-bold mb-3">Pro functies</h2>
+        <div className="flex flex-wrap gap-2">
+          {quota?.isPro ? (
+            <>
+              <Link href="/jaaroverzicht" className="btn-primary text-sm">
+                📊 Jaaroverzicht
+              </Link>
+              <a
+                href="/api/export/csv"
+                download
+                className="btn-ghost border border-[#E8E0D0] text-sm cursor-pointer"
+              >
+                📥 CSV exporteren
+              </a>
+              <a
+                href="/api/export/json"
+                download
+                className="btn-ghost border border-[#E8E0D0] text-sm cursor-pointer"
+              >
+                📥 JSON exporteren
+              </a>
+            </>
+          ) : (
+            <>
+              <button
+                onClick={() => setShowPricing(true)}
+                className="btn-primary text-sm cursor-pointer"
+              >
+                📊 Jaaroverzicht
+              </button>
+              <button
+                onClick={() => setShowPricing(true)}
+                className="btn-ghost border border-[#E8E0D0] text-sm cursor-pointer"
+              >
+                📥 CSV exporteren
+              </button>
+              <button
+                onClick={() => setShowPricing(true)}
+                className="btn-ghost border border-[#E8E0D0] text-sm cursor-pointer"
+              >
+                📥 JSON exporteren
+              </button>
+            </>
+          )}
+        </div>
+      </div>
+
       <div className="flex gap-3 flex-wrap justify-center">
         <Link href="/write" className="btn-primary">
           {t("ctaWrite")}
@@ -121,6 +205,11 @@ export default function StatsPage() {
           {t("ctaCalendar")}
         </Link>
       </div>
+
+      <PricingModal
+        open={showPricing}
+        onClose={() => setShowPricing(false)}
+      />
     </div>
   );
 }

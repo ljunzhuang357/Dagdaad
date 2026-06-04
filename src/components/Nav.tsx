@@ -4,6 +4,7 @@ import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
+import ThemePicker from "./ThemePicker";
 
 export default function Nav() {
   const t = useTranslations("nav");
@@ -41,6 +42,7 @@ export default function Nav() {
         <Link href="/stats" className={linkClass}>
           {t("stats")}
         </Link>
+        <ThemePicker />
         {isPending ? (
           <span className="text-sm text-[var(--text-secondary)] px-3">…</span>
         ) : session?.user ? (
@@ -118,6 +120,9 @@ export default function Nav() {
               📊 {t("stats")}
             </Link>
 
+            <div className="flex justify-center mt-4">
+              <ThemePicker />
+            </div>
             <div className="mt-auto mb-8">
               {isPending ? (
                 <p className="text-center text-sm text-[var(--text-secondary)]">

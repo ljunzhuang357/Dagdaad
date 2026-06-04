@@ -1,11 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { authClient } from "@/lib/auth-client";
 import BlogSection from "@/components/BlogSection";
 
 export default function Home() {
   const t = useTranslations("home");
+  const [checking, setChecking] = useState(false);
   const steps = t.raw("steps") as {
     emoji: string;
     title: string;
@@ -13,6 +16,31 @@ export default function Home() {
   }[];
   const freeFeatures = t.raw("pricing.free.features") as string[];
   const proFeatures = t.raw("pricing.pro.features") as string[];
+
+  const handleProClick = async () => {
+    setChecking(true);
+    try {
+      const session = await authClient.getSession();
+      if (!session?.data?.user) {
+        window.location.href = "/login";
+        return;
+      }
+      const res = await fetch("/api/creem/checkout", { method: "POST" });
+      if (!res.ok) {
+        const err = await res.json();
+        alert(err.error || "Er ging iets mis");
+        return;
+      }
+      const data = await res.json();
+      if (data.checkout_url) {
+        window.location.href = data.checkout_url;
+      }
+    } catch {
+      alert("Er ging iets mis");
+    } finally {
+      setChecking(false);
+    }
+  };
 
   return (
     <>
@@ -92,7 +120,11 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
-              <div className="card border-2 border-[var(--accent-orange)] relative">
+              <button
+                onClick={handleProClick}
+                disabled={checking}
+                className="card border-2 border-[var(--accent-orange)] relative text-left cursor-pointer hover:shadow-lg transition-shadow disabled:opacity-60"
+              >
                 <span className="absolute -top-3 -right-3 bg-[var(--accent-orange)] text-white text-sm px-3 py-1 rounded-full font-bold">
                   ⭐ {t("pricing.pro.badge")}
                 </span>
@@ -107,7 +139,10 @@ export default function Home() {
                     <li key={i}>{f}</li>
                   ))}
                 </ul>
-              </div>
+                <div className="mt-4 text-sm font-semibold text-[var(--accent-orange)]">
+                  {checking ? "Bezig..." : `Abonneren →`}
+                </div>
+              </button>
             </div>
             <p className="text-xs text-[var(--text-secondary)] mt-6">
               {t("pricing.footnote")}

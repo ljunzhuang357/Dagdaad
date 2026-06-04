@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import PricingModal from "@/components/PricingModal";
 
 type MoodEmoji =
   | "😊"
@@ -29,7 +30,32 @@ export default function SchrijvenPage() {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState("");
+  const [showPricing, setShowPricing] = useState(false);
+  const [quota, setQuota] = useState<{
+    isPro: boolean;
+    monthlyUsed: number;
+    monthlyLimit: number;
+    remaining: number;
+  } | null>(null);
+  const [quotaLoading, setQuotaLoading] = useState(true);
   const restored = useRef(false);
+
+  // Fetch quota
+  useEffect(() => {
+    fetch("/api/quota")
+      .then((r) => {
+        if (r.status === 401) {
+          window.location.href = "/login";
+          return null;
+        }
+        return r.json();
+      })
+      .then((data) => {
+        if (data) setQuota(data);
+      })
+      .catch(() => {})
+      .finally(() => setQuotaLoading(false));
+  }, []);
 
   // 登录后恢复未保存的数据并自动提交
   useEffect(() => {
@@ -43,13 +69,11 @@ export default function SchrijvenPage() {
       const data = JSON.parse(raw);
       if (!data.description || !data.mood || !data.impact) return;
 
-      // 先恢复表单状态
       setGoodThing(data.description);
       setMood(data.mood);
       setImpact(data.impact);
       setStep(2);
 
-      // state 稳定后自动保存
       setTimeout(async () => {
         setSaving(true);
         setError("");
@@ -65,9 +89,12 @@ export default function SchrijvenPage() {
           });
           if (!res.ok) {
             if (res.status === 401) {
-              // 仍然未登录——再存回去，跳到登录页
               localStorage.setItem(PENDING_KEY, raw);
               window.location.href = "/login";
+              return;
+            }
+            if (res.status === 403) {
+              handle403();
               return;
             }
             const errData = await res.json();
@@ -80,9 +107,21 @@ export default function SchrijvenPage() {
         setSaving(false);
       }, 100);
     } catch {
-      /* JSON 解析失败就跳过 */
+      /* JSON parse fail — skip */
     }
   }, [t]);
+
+  // Over limit — show pricing modal
+  useEffect(() => {
+    if (!quotaLoading && quota && !quota.isPro && quota.remaining <= 0) {
+      setShowPricing(true);
+    }
+  }, [quotaLoading, quota]);
+
+  // Handle 403 from save — open pricing modal
+  const handle403 = () => {
+    setShowPricing(true);
+  };
 
   const handleSave = async () => {
     if (!goodThing.trim() || !mood || !impact) return;
@@ -96,12 +135,15 @@ export default function SchrijvenPage() {
       });
       if (!res.ok) {
         if (res.status === 401) {
-          // 未登录→暂存数据→跳到登录页
           localStorage.setItem(
             PENDING_KEY,
             JSON.stringify({ description: goodThing, mood, impact })
           );
           window.location.href = "/login";
+          return;
+        }
+        if (res.status === 403) {
+          handle403();
           return;
         }
         const data = await res.json();
@@ -141,6 +183,13 @@ export default function SchrijvenPage() {
 
   return (
     <div className="flex-1 flex flex-col items-center px-6 py-12 max-w-lg mx-auto w-full">
+      {/* Quota indicator */}
+      {quota && !quota.isPro && (
+        <div className="w-full mb-4 text-xs text-[var(--text-secondary)] text-center">
+          {quota.remaining}/{quota.monthlyLimit} over deze maand
+        </div>
+      )}
+
       {/* Progress */}
       <div className="flex gap-2 mb-8 w-full">
         {[0, 1, 2].map((s) => (
@@ -262,6 +311,11 @@ export default function SchrijvenPage() {
           </div>
         </>
       )}
+
+      <PricingModal
+        open={showPricing}
+        onClose={() => setShowPricing(false)}
+      />
     </div>
   );
 }
