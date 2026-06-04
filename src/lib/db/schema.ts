@@ -1,4 +1,4 @@
-import { integer, text, date, timestamp, pgTable, serial, index, foreignKey } from "drizzle-orm/pg-core";
+import { integer, text, date, timestamp, pgTable, serial, index } from "drizzle-orm/pg-core";
 
 export const goodDeeds = pgTable(
   "good_deeds",
@@ -36,5 +36,33 @@ export const subscriptions = pgTable(
   (table) => [
     index("idx_subscriptions_user").on(table.userId),
     index("idx_subscriptions_creem").on(table.creemSubscriptionId),
+  ]
+);
+
+export const referralCodes = pgTable(
+  "referral_codes",
+  {
+    id: serial("id").primaryKey(),
+    userId: text("user_id").notNull().unique(),
+    code: text("code").notNull().unique(),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [
+    index("idx_referral_code").on(table.code),
+  ]
+);
+
+export const referralRedemptions = pgTable(
+  "referral_redemptions",
+  {
+    id: serial("id").primaryKey(),
+    referrerId: text("referrer_id").notNull(),
+    refereeId: text("referee_id").notNull(),
+    code: text("code").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [
+    index("idx_redemptions_referrer").on(table.referrerId),
+    index("idx_redemptions_referee").on(table.refereeId),
   ]
 );

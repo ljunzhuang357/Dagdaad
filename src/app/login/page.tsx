@@ -32,6 +32,21 @@ export default function LoginPage() {
     setLoading(false);
   };
 
+  const redeemReferral = async () => {
+    const refCode = localStorage.getItem("dagdaad_ref");
+    if (!refCode) return;
+    localStorage.removeItem("dagdaad_ref");
+    try {
+      await fetch("/api/referral/redeem", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code: refCode }),
+      });
+    } catch {
+      /* silent fail — referral bonus is nice-to-have */
+    }
+  };
+
   const verifyOtp = async () => {
     if (!otp.trim()) return;
     setLoading(true);
@@ -46,6 +61,7 @@ export default function LoginPage() {
         setLoading(false);
         return;
       }
+      await redeemReferral();
       const hasPending = !!localStorage.getItem("dagdaad_pending");
       window.location.href = hasPending ? "/write" : "/";
     } catch {
@@ -54,11 +70,19 @@ export default function LoginPage() {
     setLoading(false);
   };
 
-  const signInGoogle = () => {
+  const signInGoogle = async () => {
     const hasPending = !!localStorage.getItem("dagdaad_pending");
+    // Google sign-in redirects away, so redemption happens after callback
+    // Store referral code in URL param via the callback flow
+    const refCode = localStorage.getItem("dagdaad_ref");
+    const cbUrl = hasPending
+      ? `/write${refCode ? `?ref=${refCode}` : ""}`
+      : refCode
+        ? `/?ref=${refCode}`
+        : "/";
     authClient.signIn.social({
       provider: "google",
-      callbackURL: hasPending ? "/write" : "/",
+      callbackURL: cbUrl,
     });
   };
 

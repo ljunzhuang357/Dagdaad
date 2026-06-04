@@ -19,6 +19,7 @@ export default function StatsPage() {
   } | null>(null);
   const [loading, setLoading] = useState(true);
   const [showPricing, setShowPricing] = useState(false);
+  const [referral, setReferral] = useState<{ code: string; url: string; redemptions: number } | null>(null);
 
   useEffect(() => {
     const thisMonth = new Date().toISOString().slice(0, 7);
@@ -32,10 +33,12 @@ export default function StatsPage() {
         return r.json();
       }),
       fetch("/api/quota").then((r) => (r.ok ? r.json() : null)),
+      fetch("/api/referral/code").then((r) => (r.ok ? r.json() : null)),
     ])
-      .then(([data, quotaData]) => {
+      .then(([data, quotaData, refData]) => {
         if (!data) return;
         if (quotaData) setQuota(quotaData);
+        if (refData) setReferral(refData);
 
         const all = data.deeds || [];
         const month = all.filter(
@@ -195,6 +198,43 @@ export default function StatsPage() {
             </>
           )}
         </div>
+      </div>
+
+      {/* Referral section */}
+      <div className="w-full mb-6 card print:shadow-none">
+        <h2 className="font-bold mb-3">👥 Nodig vrienden uit</h2>
+        <p className="text-sm text-[var(--text-secondary)] mb-3">
+          Nodig een vriend uit en jullie krijgen allebei <strong>+5 goede daden</strong> extra per maand!
+        </p>
+        {referral ? (
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 bg-[#F5F0E8] rounded-xl px-3 py-2">
+              <input
+                readOnly
+                value={referral.url}
+                className="flex-1 bg-transparent text-sm outline-none min-w-0"
+                onClick={(e) => e.currentTarget.select()}
+              />
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(referral.url);
+                }}
+                className="btn-primary text-xs shrink-0 cursor-pointer"
+              >
+                Kopiëren
+              </button>
+            </div>
+            {referral.redemptions > 0 && (
+              <p className="text-xs text-[var(--accent-orange)]">
+                {referral.redemptions} vriend{referral.redemptions !== 1 ? "en" : ""} uitgenodigd — +{referral.redemptions * 5} extra!
+              </p>
+            )}
+          </div>
+        ) : (
+          <p className="text-xs text-[var(--text-secondary)]">
+            Log in om je uitnodigingslink te zien
+          </p>
+        )}
       </div>
 
       <div className="flex gap-3 flex-wrap justify-center">

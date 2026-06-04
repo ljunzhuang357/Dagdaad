@@ -31,6 +31,7 @@ export default function SchrijvenPage() {
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState("");
   const [showPricing, setShowPricing] = useState(false);
+  const [streak, setStreak] = useState<number | null>(null);
   const [quota, setQuota] = useState<{
     isPro: boolean;
     monthlyUsed: number;
@@ -150,6 +151,13 @@ export default function SchrijvenPage() {
         throw new Error(data.error || t("error"));
       }
       setSaved(true);
+      // Fetch streak for share option
+      fetch("/api/stats/streak")
+        .then((r) => (r.ok ? r.json() : null))
+        .then((d) => {
+          if (d) setStreak(d.streak);
+        })
+        .catch(() => {});
     } catch (e: any) {
       setError(e.message || t("error"));
     }
@@ -157,6 +165,8 @@ export default function SchrijvenPage() {
   };
 
   if (saved) {
+    const shareUrl = streak ? `/api/og/streak?s=${streak}` : null;
+
     return (
       <div className="flex-1 flex items-center justify-center px-6 text-center">
         <div>
@@ -165,6 +175,30 @@ export default function SchrijvenPage() {
           <p className="text-[var(--text-secondary)] mb-8">
             {t("savedSubtitle")}
           </p>
+
+          {/* Streak share card */}
+          {shareUrl && streak && streak > 0 && (
+            <div className="mb-6">
+              <a
+                href={shareUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block mx-auto rounded-2xl overflow-hidden shadow-lg max-w-[240px] hover:opacity-90 transition-opacity"
+              >
+                <img
+                  src={shareUrl}
+                  alt={`${streak} dagen op rij!`}
+                  className="w-full"
+                  width={240}
+                  height={240}
+                />
+              </a>
+              <p className="text-xs text-[var(--text-secondary)] mt-2">
+                {streak} dagen op rij! Tik op de kaart om te delen
+              </p>
+            </div>
+          )}
+
           <div className="flex gap-3 justify-center flex-wrap">
             <Link href="/write" className="btn-primary">
               {t("writeAnother")}

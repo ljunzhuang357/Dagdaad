@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import Nav from "@/components/Nav";
+import RefHandler from "@/components/RefHandler";
 import "./globals.css";
 import nlMessages from "../../messages/nl.json";
 
@@ -138,6 +139,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <NextIntlClientProvider locale="nl" messages={nlMessages} timeZone="Europe/Amsterdam">
+          <RefHandler />
           <Nav />
           {children}
         </NextIntlClientProvider>

@@ -1,5 +1,5 @@
 import { db } from "./index";
-import { subscriptions, goodDeeds } from "./schema";
+import { subscriptions, goodDeeds, referralRedemptions } from "./schema";
 import { and, eq, sql } from "drizzle-orm";
 
 export async function getEntitlement(userId: string) {
@@ -30,7 +30,18 @@ export async function getEntitlement(userId: string) {
     );
 
   const monthlyUsed = row?.count ?? 0;
-  const monthlyLimit = isPro ? Infinity : 30;
+
+  // Referral bonus: +5 per successful referral
+  let referralBonus = 0;
+  if (!isPro) {
+    const [refCount] = await db
+      .select({ count: sql<number>`count(*)::int` })
+      .from(referralRedemptions)
+      .where(eq(referralRedemptions.referrerId, userId));
+    referralBonus = (refCount?.count ?? 0) * 5;
+  }
+
+  const monthlyLimit = isPro ? Infinity : 30 + referralBonus;
 
   return {
     isPro,
@@ -38,5 +49,6 @@ export async function getEntitlement(userId: string) {
     monthlyLimit,
     remaining:
       monthlyLimit === Infinity ? Infinity : monthlyLimit - monthlyUsed,
+    referralBonus,
   };
 }
