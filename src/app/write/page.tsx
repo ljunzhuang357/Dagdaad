@@ -194,10 +194,9 @@ export default function SchrijvenPage() {
             {t("savedSubtitle")}
           </p>
 
-          {/* Streak share card */}
           {shareUrl && streak && streak > 0 && (
-            <>
-              <div className="mb-4 mx-auto max-w-[300px] sm:max-w-xs rounded-2xl overflow-hidden shadow-lg">
+            <div className="mb-8">
+              <div className="mx-auto max-w-[280px] sm:max-w-xs rounded-2xl overflow-hidden shadow-lg mb-4">
                 <img
                   src={shareUrl}
                   alt={`${streak} dagen op rij!`}
@@ -205,22 +204,21 @@ export default function SchrijvenPage() {
                 />
               </div>
 
-              {/* Share buttons */}
-              <div className="flex gap-2 justify-center flex-wrap mb-6">
+              <div className="flex gap-2 justify-center flex-wrap">
                 <button
                   onClick={() =>
                     doWebShare(
-                      `Ik heb een streak van ${streak} dagen op Dagdaad! Elke dag een goede daad. Doe ook mee! 🌟`,
+                      `Ik heb een streak van ${streak} dagen op Dagdaad! Doe ook mee!`,
                       "https://dagdaad.nl"
                     )
                   }
                   className="btn-primary text-sm cursor-pointer"
                 >
-                  📱 Deel via...
+                  📱 Deel
                 </button>
                 <a
                   href={`https://wa.me/?text=${encodeURIComponent(
-                    `Ik heb een streak van ${streak} dagen op Dagdaad! Elke dag een goede daad. Doe ook mee! 🌟 dagdaad.nl`
+                    `Ik heb een streak van ${streak} dagen op Dagdaad! Doe ook mee! dagdaad.nl`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -228,42 +226,9 @@ export default function SchrijvenPage() {
                 >
                   💬 WhatsApp
                 </a>
-                <a
-                  href={shareUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-ghost border border-[#E8E0D0] text-sm inline-flex items-center cursor-pointer"
-                >
-                  💾 Opslaan
-                </a>
               </div>
-            </>
-          )}
-
-          {/* Referral invite */}
-          <div className="card mb-6 text-left">
-            <h3 className="font-bold text-sm mb-1">👥 Nodig vrienden uit</h3>
-            <p className="text-xs text-[var(--text-secondary)] mb-3">
-              Nodig een vriend uit en jullie krijgen allebei{" "}
-              <strong>+5 goede daden</strong> extra per maand!
-            </p>
-            <div className="flex gap-2">
-              <button
-                onClick={() =>
-                  doWebShare(
-                    "Doe ook mee met Dagdaad — noteer elke dag een goede daad! 🌟",
-                    "https://dagdaad.nl"
-                  )
-                }
-                className="btn-primary text-sm cursor-pointer"
-              >
-                📱 Deel link
-              </button>
-              <Link href="/stats" className="btn-ghost border border-[#E8E0D0] text-sm">
-                Bekijk →
-              </Link>
             </div>
-          </div>
+          )}
 
           <div className="flex gap-3 justify-center flex-wrap">
             <Link href="/write" className="btn-primary">

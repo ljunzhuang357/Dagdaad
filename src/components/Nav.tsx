@@ -10,6 +10,21 @@ export default function Nav() {
   const t = useTranslations("nav");
   const { data: session, isPending } = authClient.useSession();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isPro, setIsPro] = useState(false);
+
+  // Check Pro status for theme picker gating
+  useEffect(() => {
+    if (session?.user) {
+      fetch("/api/quota")
+        .then((r) => (r.ok ? r.json() : null))
+        .then((data) => {
+          if (data) setIsPro(data.isPro);
+        })
+        .catch(() => {});
+    } else {
+      setIsPro(false);
+    }
+  }, [session]);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -42,7 +57,7 @@ export default function Nav() {
         <Link href="/stats" className={linkClass}>
           {t("stats")}
         </Link>
-        <ThemePicker />
+        {isPro && <ThemePicker />}
         {isPending ? (
           <span className="text-sm text-[var(--text-secondary)] px-3">…</span>
         ) : session?.user ? (
@@ -120,9 +135,11 @@ export default function Nav() {
               📊 {t("stats")}
             </Link>
 
-            <div className="flex justify-center mt-4">
-              <ThemePicker />
-            </div>
+            {isPro && (
+              <div className="flex justify-center mt-4">
+                <ThemePicker />
+              </div>
+            )}
             <div className="mt-auto mb-8">
               {isPending ? (
                 <p className="text-center text-sm text-[var(--text-secondary)]">

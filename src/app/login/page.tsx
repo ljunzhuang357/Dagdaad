@@ -11,6 +11,7 @@ export default function LoginPage() {
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [googleLoading, setGoogleLoading] = useState(false);
 
   const sendOtp = async () => {
     if (!email.trim()) return;
@@ -71,19 +72,28 @@ export default function LoginPage() {
   };
 
   const signInGoogle = async () => {
+    if (googleLoading) return;
+    setGoogleLoading(true);
+    setError("");
     const hasPending = !!localStorage.getItem("dagdaad_pending");
-    // Google sign-in redirects away, so redemption happens after callback
-    // Store referral code in URL param via the callback flow
     const refCode = localStorage.getItem("dagdaad_ref");
     const cbUrl = hasPending
       ? `/write${refCode ? `?ref=${refCode}` : ""}`
       : refCode
         ? `/?ref=${refCode}`
         : "/";
-    authClient.signIn.social({
-      provider: "google",
-      callbackURL: cbUrl,
-    });
+    try {
+      const result = await authClient.signIn.social({
+        provider: "google",
+        callbackURL: cbUrl,
+      });
+      if (result?.error) {
+        setError(result.error.message || "Google inloggen is niet beschikbaar. Probeer e-mail.");
+      }
+    } catch {
+      setError("Google inloggen is niet beschikbaar. Probeer e-mail.");
+    }
+    setGoogleLoading(false);
   };
 
   return (
@@ -102,7 +112,7 @@ export default function LoginPage() {
             <>
               <button
                 onClick={signInGoogle}
-                disabled={loading}
+                disabled={loading || googleLoading}
                 className="btn-ghost w-full flex items-center justify-center gap-3 mb-4 cursor-pointer"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24">
