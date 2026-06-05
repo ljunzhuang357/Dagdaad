@@ -2,7 +2,7 @@
 title: "Journaling voor beginners: zo begin je zonder druk (en houd je het wél vol)"
 description: "Beginner met journaling? Goed nieuws: 1 zin per dag is genoeg. Ontdek hoe je zonder perfectionisme een dagelijkse schrijfgewoonte opbouwt."
 slug: "journaling-voor-beginners-zo-begin-je-zonder-druk"
-date: 2026-06-03
+date: 2026-05-26
 tags: [journaling beginners, beginnen met dagboek, perfectionisme, laagdrempelig]
 ---
 

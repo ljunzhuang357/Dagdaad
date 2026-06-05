@@ -2,7 +2,7 @@
 title: "Dankbaarheidsdagboek: 7 manieren om het vol te houden"
 description: "Een dankbaarheidsdagboek starten is makkelijk, volhouden is de uitdaging. 7 praktische tips die wél werken, gebaseerd op gedragswetenschap."
 slug: "dankbaarheidsdagboek-volhouden-7-manieren"
-date: 2026-06-03
+date: 2026-05-12
 tags: [dankbaarheidsdagboek, volhouden, gewoonte, tips]
 ---
 

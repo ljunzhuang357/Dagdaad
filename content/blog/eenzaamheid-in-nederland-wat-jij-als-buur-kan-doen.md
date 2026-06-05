@@ -2,7 +2,7 @@
 title: "Eenzaamheid in Nederland: wat jij als buur kunt doen"
 description: "Ruim 1 miljoen Nederlanders voelen zich eenzaam. Wat jij als buur kunt doen is eenvoudiger dan je denkt. Concrete acties die écht helpen."
 slug: "eenzaamheid-in-nederland-wat-jij-als-buur-kan-doen"
-date: 2026-06-03
+date: 2026-05-16
 tags: [eenzaamheid, buurt helpen, sociale contacten, Nederland]
 ---
 

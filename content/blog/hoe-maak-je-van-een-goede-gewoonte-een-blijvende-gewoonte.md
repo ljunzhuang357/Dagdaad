@@ -2,7 +2,7 @@
 title: "Hoe maak je van een goede gewoonte een blijvende gewoonte?"
 description: "Volgens gedragswetenschappers BJ Fogg en James Clear is gewoontevorming een kwestie van de juiste techniek. Ontdek hoe je goede daden structureel volhoudt."
 slug: "hoe-maak-je-van-een-goede-gewoonte-een-blijvende-gewoonte"
-date: 2026-06-03
+date: 2026-05-22
 tags: [gewoonte volhouden, BJ Fogg, James Clear, habit stacking]
 ---
 

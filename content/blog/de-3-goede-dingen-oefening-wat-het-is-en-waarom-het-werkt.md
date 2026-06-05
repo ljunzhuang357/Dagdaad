@@ -2,7 +2,7 @@
 title: "De '3 goede dingen'-oefening: wat het is en waarom het werkt"
 description: "Martin Seligman's bekendste oefening uit de positieve psychologie: elke dag 3 goede dingen opschrijven. Wat zegt het onderzoek en waarom werkt het?"
 slug: "de-3-goede-dingen-oefening-wat-het-is-en-waarom-het-werkt"
-date: 2026-06-03
+date: 2026-05-14
 tags: [3 goede dingen, positieve psychologie, Seligman, dankbaarheid]
 ---
 

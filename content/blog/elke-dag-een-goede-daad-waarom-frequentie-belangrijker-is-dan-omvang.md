@@ -2,7 +2,7 @@
 title: "Waarom 1 goede daad per dag meer effect heeft dan 1 keer per maand 30 doen"
 description: "Gewoontevorming en geluksonderzoek tonen aan: frequentie is belangrijker dan intensiteit. Liever 1 kleine daad per dag dan een grote een keer per maand."
 slug: "elke-dag-een-goede-daad-waarom-frequentie-belangrijker-is-dan-omvang"
-date: 2026-06-03
+date: 2026-05-18
 tags: [gewoonte, frequentie, goede daad, volhouden]
 ---
 

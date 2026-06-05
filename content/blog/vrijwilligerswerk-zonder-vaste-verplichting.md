@@ -2,7 +2,7 @@
 title: "Vrijwilligerswerk zonder vaste verplichting: 3 manieren om tóch iets te betekenen"
 description: "Geen tijd of energie voor vast vrijwilligerswerk? Ontdek micro-vrijwilligerswerk en andere laagdrempelige manieren om impact te maken."
 slug: "vrijwilligerswerk-zonder-vaste-verplichting"
-date: 2026-06-03
+date: 2026-05-30
 tags: [vrijwilligerswerk, micro-vrijwilligerswerk, goed doel, laagdrempelig]
 ---
 

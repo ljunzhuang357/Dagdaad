@@ -2,7 +2,7 @@
 title: "Het Dankboek versus een app: wat werkt beter?"
 description: "Vergelijking tussen Ernst-Jan Pfauth's Het Dankboek en een digitale app zoals Dagdaad. Welke past beter bij jouw levensstijl?"
 slug: "het-dankboek-versus-een-app"
-date: 2026-06-03
+date: 2026-05-20
 tags: [Het Dankboek, dankbaarheid app, vergelijking, dagboek]
 ---
 

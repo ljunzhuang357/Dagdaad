@@ -2,7 +2,7 @@
 title: "Waarom kleine goede daden je gelukkiger maken dan grote verwachtingen"
 description: "Onderzoek toont aan: dagelijkse kleine goede daden maken je blijer dan zeldzame grote gebaren. Lees hoe prosociaal gedrag jouw geluksniveau verhoogt."
 slug: "waarom-kleine-goede-daden-je-gelukkiger-maken"
-date: 2026-06-03
+date: 2026-06-01
 tags: [geluk, prosociaal gedrag, goede daad, positieve psychologie]
 ---
 

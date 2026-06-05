@@ -2,7 +2,7 @@
 title: "Hoe praat je met een eenzame buur? 5 praktische tips"
 description: "Een gesprek beginnen met een eenzame buur voelt ongemakkelijk. Met deze 5 gesprekstips wordt het vanzelf makkelijker."
 slug: "hoe-praat-je-met-een-eenzame-buur"
-date: 2026-06-03
+date: 2026-05-24
 tags: [gesprek, eenzame buur, sociale vaardigheden, eenzaamheid]
 ---
 

@@ -2,7 +2,7 @@
 title: "5 kleine gebaren die eenzaamheid verminderen (zonder dat het moeite kost)"
 description: "Kleine gebaren kunnen een groot verschil maken. 5 laagdrempelige acties die eenzaamheid verminderen en verbinding creëren in je buurt."
 slug: "5-kleine-gebaren-die-eenzaamheid-verminderen"
-date: 2026-06-03
+date: 2026-05-06
 tags: [eenzaamheid verminderen, kleine gebaren, verbinding, buurt]
 ---
 

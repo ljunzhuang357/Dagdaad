@@ -2,7 +2,7 @@
 title: "Wetenschappelijk bewezen: zo train je je brein in positiviteit"
 description: "Neuroplasticiteit maakt het mogelijk om je brein te trainen in positief denken. Ontdek hoe dagelijks schrijven je hersenen herbedraadt."
 slug: "train-je-brein-in-positiviteit"
-date: 2026-06-03
+date: 2026-05-28
 tags: [neuroplasticiteit, positiviteit, brein trainen, negativity bias]
 ---
 

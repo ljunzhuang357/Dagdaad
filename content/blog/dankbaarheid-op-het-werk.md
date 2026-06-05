@@ -2,7 +2,7 @@
 title: "Dankbaarheid op het werk: 3 oefeningen voor een positievere teamcultuur"
 description: "Werkplezier en teamcultuur kunnen enorm verbeteren door dankbaarheid. 3 praktische oefeningen die je direct kunt toepassen op je werk."
 slug: "dankbaarheid-op-het-werk"
-date: 2026-06-03
+date: 2026-05-10
 tags: [dankbaarheid werk, teamcultuur, werkplezier, psychologische veiligheid]
 ---
 

@@ -2,7 +2,7 @@
 title: "Dagboek schrijven: 6 voordelen voor je mentale gezondheid"
 description: "Wetenschappelijk onderzoek toont aan dat dagelijks schrijven een krachtig effect heeft op je mentale gezondheid. 6 voordelen met bronnen."
 slug: "dagboek-schrijven-6-voordelen-mentale-gezondheid"
-date: 2026-06-03
+date: 2026-05-08
 tags: [dagboek, mentale gezondheid, journaling, wetenschap]
 ---
 
