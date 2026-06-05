@@ -3,7 +3,6 @@ import { NextRequest } from "next/server";
 
 export const runtime = "edge";
 
-const STREAK_EMOJIS = ["🌱", "🌿", "🌳", "🔥", "⭐", "💪", "🏆", "👑", "🌟", "💎"];
 const STREAK_MSGS = [
   "Goed bezig!",
   "Hou vol!",
@@ -11,6 +10,20 @@ const STREAK_MSGS = [
   "Ongelooflijk!",
   "Legendarisch!",
   "Bijna een maand!",
+];
+
+// Satori-safe emoji: use text labels instead of native emoji
+const STREAK_LABELS = [
+  { label: "BEGIN", color: "#6B8F71" },
+  { label: "GROEI", color: "#4A7C59" },
+  { label: "STERK", color: "#2D5A3D" },
+  { label: "VUUR", color: "#E67E22" },
+  { label: "STER", color: "#F1C40F" },
+  { label: "KRACHT", color: "#E74C3C" },
+  { label: "GOUD", color: "#F39C12" },
+  { label: "KROON", color: "#9B59B6" },
+  { label: "TOP", color: "#FF8C42" },
+  { label: "SUPER", color: "#8E44AD" },
 ];
 
 async function loadFont(weight: number) {
@@ -26,8 +39,10 @@ async function loadFont(weight: number) {
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const days = parseInt(searchParams.get("s") || "0", 10);
-  const emoji = STREAK_EMOJIS[Math.min(days, STREAK_EMOJIS.length - 1)] || "🌟";
-  const msg = STREAK_MSGS[Math.min(Math.floor(days / 5), STREAK_MSGS.length - 1)] || "Ongelooflijk!";
+  const idx = Math.min(days, STREAK_LABELS.length - 1);
+  const lev = STREAK_LABELS[idx] || STREAK_LABELS[0];
+  const msgIdx = Math.min(Math.floor(days / 5), STREAK_MSGS.length - 1);
+  const msg = STREAK_MSGS[msgIdx] || "Ongelooflijk!";
 
   const [inter400, inter700] = await Promise.all([
     loadFont(400),
@@ -50,26 +65,125 @@ export async function GET(request: NextRequest) {
           textAlign: "center",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 32 }}>
-          <span style={{ fontSize: 28 }}>✨</span>
-          <span style={{ fontSize: 20, fontWeight: 700, color: "#2D2D2D" }}>Dagdaad</span>
+        {/* Dagdaad logo row */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            marginBottom: 32,
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              width: 32,
+              height: 32,
+              borderRadius: 8,
+              background: "#FF8C42",
+              color: "#fff",
+              fontSize: 18,
+              fontWeight: 700,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            D
+          </div>
+          <div style={{ display: "flex" }}>
+            <span style={{ fontSize: 20, fontWeight: 700, color: "#2D2D2D", display: "flex" }}>
+              Dagdaad
+            </span>
+          </div>
         </div>
-        <div style={{ fontSize: 80, marginBottom: 16 }}>{emoji}</div>
-        <div style={{ fontSize: 96, fontWeight: 700, color: "#FF8C42", lineHeight: 1 }}>
+
+        {/* Streak level badge */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: 100,
+            height: 100,
+            borderRadius: 50,
+            background: lev.color,
+            color: "#fff",
+            fontSize: 24,
+            fontWeight: 700,
+            marginBottom: 24,
+          }}
+        >
+          {lev.label}
+        </div>
+
+        {/* Day number */}
+        <div
+          style={{
+            display: "flex",
+            fontSize: 96,
+            fontWeight: 700,
+            color: "#FF8C42",
+            lineHeight: 1,
+          }}
+        >
           {days}
         </div>
-        <div style={{ fontSize: 24, color: "#6B6B6B", marginTop: 8, marginBottom: 24 }}>
+
+        {/* "dagen op rij" */}
+        <div
+          style={{
+            display: "flex",
+            fontSize: 24,
+            color: "#6B6B6B",
+            marginTop: 8,
+            marginBottom: 24,
+          }}
+        >
           {days === 1 ? "dag op rij" : "dagen op rij"}
         </div>
-        <div style={{ fontSize: 20, color: "#2D2D2D", fontWeight: 700 }}>
+
+        {/* Message */}
+        <div
+          style={{
+            display: "flex",
+            fontSize: 20,
+            color: "#2D2D2D",
+            fontWeight: 700,
+          }}
+        >
           {msg}
         </div>
-        <div style={{ marginTop: "auto", display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
-          <div style={{ fontSize: 16, color: "#FF8C42", fontWeight: 700, display: "flex", gap: 6, alignItems: "center" }}>
-            <span>Doe ook mee</span>
-            <span style={{ fontSize: 18 }}>→</span>
+
+        {/* Bottom CTA */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 4,
+            marginTop: "auto",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              fontSize: 16,
+              color: "#FF8C42",
+              fontWeight: 700,
+              gap: 6,
+              alignItems: "center",
+            }}
+          >
+            <span style={{ display: "flex" }}>Doe ook mee</span>
+            <span style={{ display: "flex", fontSize: 18 }}>{">"}</span>
           </div>
-          <div style={{ fontSize: 14, color: "#999" }}>
+          <div
+            style={{
+              display: "flex",
+              fontSize: 14,
+              color: "#999",
+            }}
+          >
             dagdaad.nl
           </div>
         </div>
