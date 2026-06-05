@@ -6,19 +6,21 @@ date: 2026-06-03
 tags: [eenzaamheid, buurt helpen, sociale contacten, Nederland]
 ---
 
-Je kent het gevoel wel: je loopt je straat uit, ziet een buur bij de voordeur staan, knikt vriendelijk en loopt door. Niks mis mee. Maar stel je voor dat die buur al drie dagen met niemand heeft gesproken.
+Kort samengevat: Ruim 1,3 miljoen Nederlanders voelen zich ernstig eenzaam, maar jij kunt als buur verschil maken met eenvoudige acties: aanbellen en je voorstellen, uitnodigen voor koffie, en een kleine boodschap meenemen. Structurele kleine verbindingen werken beter dan eenmalige grote gebaren.
+
+Je kent het gevoel wel: je loopt je straat uit, ziet een buur bij de voordeur staan, knikt vriendelijk en loopt door. Niks mee mis. Maar stel je voor dat die buur al drie dagen met niemand heeft gesproken.
 
 Dat is voor meer Nederlanders realiteit dan je denkt.
 
-## 1,3 miljoen mensen voelen zich ernstig eenzaam
+## Hoeveel Nederlanders voelen zich eenzaam?
 
-De cijfers van het RIVM en het SCP zijn al jaren zorgwekkend: ongeveer 1,3 miljoen Nederlanders van 15 jaar en ouder voelen zich ernstig eenzaam. In totaal geeft 47 procent van de Nederlanders aan zich eenzaam te voelen — dat is bijna de helft van het land.
+De cijfers van [het RIVM](https://www.rivm.nl/eenzaamheid) en [het SCP](https://www.scp.nl/) zijn al jaren zorgwekkend: ongeveer 1,3 miljoen Nederlanders van 15 jaar en ouder voelen zich ernstig eenzaam. In totaal geeft 47 procent van de Nederlanders aan zich eenzaam te voelen — dat is bijna de helft van het land.
 
-Eenzaamheid is niet alleen een probleem van ouderen. Uit CBS-onderzoek uit 2024 blijkt dat jongeren tussen de 15 en 25 jaar zich vaker eenzaam voorden dan zestigplussers. De cijfers lopen dwars door alle leeftijden, opleidingsniveaus en regio's heen.
+Eenzaamheid is niet alleen een probleem van ouderen. Uit [CBS-onderzoek](https://www.cbs.nl/nl-nl/visualisaties/gezondheid-en-welzijn/eenzaamheid) uit 2024 blijkt dat jongeren tussen de 15 en 25 jaar zich vaker eenzaam voorden dan zestigplussers. De cijfers lopen dwars door alle leeftijden, opleidingsniveaus en regio's heen.
 
 En het gekke? De meeste mensen hebben wél contacten. Maar het aantal betekenisvolle contacten — gesprekken waarin je even verder komt dan 'hoe is het?' 'ja goed' — is schrikbarend laag.
 
-## Wat jij kunt doen
+## Wat kun jij als buur doen?
 
 Misschien denk je: daar kan ik toch niks aan doen? Dat is te groot voor mij? Dat dacht ik vroeger ook. Tot ik ontdekte dat eenzaamheid niet wordt opgelost door één groot gebaar. Het wordt verminderd door een reeks kleine, structurele verbindingen.
 
@@ -42,7 +44,7 @@ Ga je toch naar de supermarkt? Vraag of je buur ook iets nodig heeft. Het kost j
 
 Het gaat niet om de boodschap. Het gaat erom dat er iemand aan je denkt.
 
-## Waarom kleine daden werken
+## Waarom werken kleine daden beter dan grote?
 
 Hier komt het belangrijkste inzicht uit het onderzoek naar prosociaal gedrag: eenzaamheid verdwijnt niet door een eenmalig groot gebaar. Wat wél werkt is structurele kleine verbindingen — de dagelijkse of wekelijkse momenten waarop je even ziet en gezien wordt.
 

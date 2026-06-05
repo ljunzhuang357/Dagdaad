@@ -42,7 +42,7 @@ export default function Nav() {
   return (
     <nav className="flex items-center justify-between px-4 sm:px-6 py-3 max-w-4xl mx-auto w-full">
       <Link href="/" className="text-xl font-bold min-h-[44px] flex items-center gap-2">
-        <img src="/logo.png" alt="Dagdaad" className="h-7 w-7 rounded-full" />
+        <img src="/logo.webp" alt="Dagdaad" className="h-7 w-7 rounded-full" />
         Dagdaad
       </Link>
 

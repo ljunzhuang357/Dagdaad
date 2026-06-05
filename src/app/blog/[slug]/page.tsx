@@ -58,30 +58,54 @@ export default async function BlogPostPage({ params }: Props) {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.description,
-    datePublished: post.date + "T00:00:00+02:00",
-    author: {
-      "@type": "Organization",
-      name: "Dagdaad",
-      url: "https://dagdaad.nl",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Dagdaad",
-      url: "https://dagdaad.nl",
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://dagdaad.nl/blog/${post.slug}`,
-    },
-    image: {
-      "@type": "ImageObject",
-      url: `https://dagdaad.nl/blog/${post.slug}/opengraph-image`,
-      width: 1200,
-      height: 630,
-    },
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": `https://dagdaad.nl/blog/${post.slug}#article`,
+        headline: post.title,
+        description: post.description,
+        datePublished: post.date + "T00:00:00+02:00",
+        author: {
+          "@type": "Organization",
+          name: "Dagdaad",
+          url: "https://dagdaad.nl",
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "Dagdaad",
+          url: "https://dagdaad.nl",
+        },
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": `https://dagdaad.nl/blog/${post.slug}`,
+        },
+        image: {
+          "@type": "ImageObject",
+          url: `https://dagdaad.nl/blog/${post.slug}/opengraph-image`,
+          width: 1200,
+          height: 630,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `https://dagdaad.nl/blog/${post.slug}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://dagdaad.nl" },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Blog",
+            item: "https://dagdaad.nl/blog",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: post.title,
+            item: `https://dagdaad.nl/blog/${post.slug}`,
+          },
+        ],
+      },
+    ],
   };
 
   return (

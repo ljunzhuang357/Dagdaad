@@ -42,8 +42,27 @@ export default function Home() {
     }
   };
 
+  const faqItems = t.raw("faq.items") as { q: string; a: string }[];
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
+      },
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <main className="flex-1">
         {/* Hero */}
         <section
@@ -156,7 +175,7 @@ export default function Home() {
             {t("faq.title")}
           </h2>
           <div className="space-y-4">
-            {(t.raw("faq.items") as { q: string; a: string }[]).map(
+            {faqItems.map(
               (item, i) => (
                 <details
                   key={i}

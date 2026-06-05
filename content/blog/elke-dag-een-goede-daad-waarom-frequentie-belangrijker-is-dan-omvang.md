@@ -6,33 +6,35 @@ date: 2026-06-03
 tags: [gewoonte, frequentie, goede daad, volhouden]
 ---
 
+Kort samengevat: Frequentie is belangrijker dan intensiteit bij prosociaal gedrag: elke dag een kleine goede daad doet meer voor je geluk dan een keer per maand iets groots. Onderzoek toont aan dat dagelijkse handelingen van vriendelijkheid je geluksniveau structureel verhogen door een stapelend effect van kleine dopaminepieken.
+
 Je kent het wel. Je denkt: "Deze maand ga ik écht iets goeds doen. Iets groots. Een middag vrijwilligen, een flinke donatie, een buurman uit de brand helpen." De maand begint, het leven gebeurt, en voor je het weet is het alweer de 29ste. Die goede daad? Nooit van gekomen.
 
 Herkenbaar? Je bent niet de enige. We overschatten structureel wat we in één keer kunnen doen en onderschatten wat dagelijkse kleine acties voor ons betekenen. Maar het onderzoek is glashelder: frequentie verslaat intensiteit. Altijd.
 
-## Kleine stappen, grote verandering
+## Waarom werken kleine stappen beter dan grote?
 
-Psycholoog BJ Fogg van Stanford deed jaren onderzoek naar gedragsverandering. Zijn conclusie: de enige manier om een gewoonte écht te laten beklijven, is door hem belachelijk makkelijk te maken. Fogg noemt dat *Tiny Habits*. Niet "30-dagen-challenge". Niet "een keertje groots uitpakken". Maar één kleine actie die je elke dag doet, zonder nadenken.
+Psycholoog [BJ Fogg](https://tinyhabits.com) van Stanford deed jaren onderzoek naar gedragsverandering. Zijn conclusie: de enige manier om een gewoonte écht te laten beklijven, is door hem belachelijk makkelijk te maken. Fogg noemt dat *Tiny Habits*. Niet "30-dagen-challenge". Niet "een keertje groots uitpakken". Maar één kleine actie die je elke dag doet, zonder nadenken.
 
-James Clear, auteur van *Atomic Habits*, drukt het nog scherper uit: als je elke dag 1 procent beter wordt, ben je aan het einde van het jaar 37 keer beter. En het omgekeerde geldt net zo hard — wachten op het perfecte moment maakt dat je uiteindelijk niets doet.
+[James Clear](https://jamesclear.com/atomic-habits), auteur van *Atomic Habits*, drukt het nog scherper uit: als je elke dag 1 procent beter wordt, ben je aan het einde van het jaar 37 keer beter. En het omgekeerde geldt net zo hard — wachten op het perfecte moment maakt dat je uiteindelijk niets doet.
 
 Het compound effect werkt niet alleen voor sparen of sporten. Het werkt net zo goed voor vriendelijkheid.
 
-## Waarom vaker beter is dan meer
+## Waarom is vaker doen beter dan meer doen?
 
 Een meta-analyse uit 2023 in *The Journal of Positive Psychology* liet zien dat prosociaal gedrag een meetbaar geluks-effect heeft, maar alleen als het regelmatig gebeurt. Mensen die vijf kleine goede daden per week deden, scoorden significant hoger op levenstevredenheid dan mensen die één keer per maand iets groots deden. De *hoeveelheid* deed er minder toe dan de *frequentie*.
 
 Dat komt omdat je brein niet lineair rekent. Het meet herhaling, niet omvang. Elke keer dat je iets goeds doet — hoe klein ook — krijg je een kleine dopaminestoot, een *helper's high*. Eén grote daad geeft één piek. Dagelijkse daden geven dertig pieken. En die bouwen op elkaar.
 
-## Je identiteit verandert
+## Hoe verandert je identiteit door dagelijkse goede daden?
 
 Hier gebeurt het echte werk. Als je eenmaal per maand iets goeds doet, blijf je denken: "ik ben iemand die af en toe iets aardigs doet." Maar als je elke dag notieert wat je voor een ander hebt gedaan, verschuift je zelfbeeld. Je wordt iemand die goede daden *verricht*. Doener, niet planne.
 
 Die identiteitsverschuiving is het verschil tussen een voornemen en een levensstijl.
 
-Onderzoekers van de University of Oxford vonden dat dagelijkse handelingen van vriendelijkheid — een deur openhouden, een kop koffie brengen, een luisterend oor — op den duur hetzelfde geluksniveau geven als een verdubbeling van je inkomen. Alleen: dan moet je het wel elke dag doen.
+Onderzoekers van de [University of Oxford](https://www.ox.ac.uk/) vonden dat dagelijkse handelingen van vriendelijkheid — een deur openhouden, een kop koffie brengen, een luisterend oor — op den duur hetzelfde geluksniveau geven als een verdubbeling van je inkomen. Alleen: dan moet je het wel elke dag doen.
 
-## Hoe Dagdaad je helpt vol te houden
+## Hoe helpt Dagdaad je om vol te houden?
 
 Het probleem van elke dag een goede daad is niet de *wil*, maar het *onthouden*. Je doet de hele dag al van alles voor anderen — een collega helpen, een boodschap voor een oudere buurvrouw meenemen, je kind voorlezen. Alleen: je vergeet het. En daarmee vergeet je ook het geluksgevoel dat erbij hoort.
 

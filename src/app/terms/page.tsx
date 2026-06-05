@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Algemene Voorwaarden",
   description: "Algemene voorwaarden van Dagdaad — jouw rechten en plichten.",
   robots: { index: false },
+  alternates: { canonical: "https://dagdaad.nl/terms" },
 };
 
 export default function TermsPage() {

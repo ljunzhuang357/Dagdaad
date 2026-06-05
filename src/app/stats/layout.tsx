@@ -4,6 +4,7 @@ export const metadata: Metadata = {
   title: "Statistieken — overzicht",
   description:
     "Zie je statistieken en patronen: totaal aantal goede daden, maandelijkse streak, meest gekozen impact. Ontdek je eigen vriendelijkheids-patronen.",
+  robots: { index: false },
   openGraph: {
     title: "Statistieken — overzicht | Dagdaad",
     description:

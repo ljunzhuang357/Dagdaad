@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Privacybeleid",
   description: "Privacybeleid van Dagdaad — hoe wij omgaan met jouw gegevens.",
   robots: { index: false },
+  alternates: { canonical: "https://dagdaad.nl/privacy" },
 };
 
 export default function PrivacyPage() {

@@ -29,8 +29,31 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   const posts = getAllPosts();
 
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": ["CollectionPage", "Blog"],
+    "@id": "https://dagdaad.nl/blog",
+    name: "Blog | Dagdaad",
+    description:
+      "Artikelen over vriendelijkheid, positiviteit en de wetenschap van goede daden.",
+    publisher: { "@id": "https://dagdaad.nl/#organization" },
+    url: "https://dagdaad.nl/blog",
+    inLanguage: "nl",
+    blogPost: posts.map((p) => ({
+      "@type": "BlogPosting",
+      headline: p.title,
+      url: `https://dagdaad.nl/blog/${p.slug}`,
+      datePublished: p.date + "T00:00:00+02:00",
+    })),
+  };
+
   return (
-    <main className="flex-1 px-6 py-12 max-w-3xl mx-auto">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
+      <main className="flex-1 px-6 py-12 max-w-3xl mx-auto">
       <header className="mb-10">
         <h1 className="text-3xl sm:text-4xl font-bold mb-3">Blog</h1>
         <p className="text-[var(--text-secondary)] text-lg">
@@ -56,5 +79,6 @@ export default function BlogPage() {
         </Link>
       </div>
     </main>
+    </>
   );
 }

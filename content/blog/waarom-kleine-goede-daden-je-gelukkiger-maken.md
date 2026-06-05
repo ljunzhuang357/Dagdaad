@@ -6,6 +6,8 @@ date: 2026-06-03
 tags: [geluk, prosociaal gedrag, goede daad, positieve psychologie]
 ---
 
+Kort samengevat: Kleine goede daden maken je gelukkiger dan grote verwachtingen, omdat frequentie belangrijker is dan intensiteit. Dagelijks iets kleins doen voor een ander geeft een stabielere geluksboost dan een eenmalig groot gebaar — en het traint je brein om automatisch kansen te zien om iets goeds te doen.
+
 Je kent het wel: je stelt jezelf voor dat je ooit iets groots doet. Een gigantisch bedrag doneren aan een goed doel. Een vriend uit de nood helpen met een levensveranderend bedrag. Dat ene gebaar dat alles anders maakt.
 
 Maar tot die dag komt, doe je niks.
@@ -14,24 +16,24 @@ Want wat stelt een kop koffie voor een collega nu voor? Of een boodschap voor ee
 
 Alleen: dat is precies verkeerd om.
 
-## De dollar die meer deed dan die in je eigen portemonnee
+## Wat leerde het klassieke geldexperiment van Elizabeth Dunn?
 
-In 2008 voerden Elizabeth Dunn en haar collega's een inmiddels klassiek experiment uit. Ze gaven proefpersonen een envelop met geld — de een mocht het aan zichzelf uitgeven, de ander moest het aan iemand anders besteden. Achteraf bleek telkens hetzelfde: de mensen die het geld aan een ander hadden gegeven, rapporteerden significant meer geluk.
+In 2008 voerden [Elizabeth Dunn](https://psych.ubc.ca/) en haar collega's een inmiddels klassiek experiment uit. Ze gaven proefpersonen een envelop met geld — de een mocht het aan zichzelf uitgeven, de ander moest het aan iemand anders besteden. Achteraf bleek telkens hetzelfde: de mensen die het geld aan een ander hadden gegeven, rapporteerden significant meer geluk.
 
 Niet een beetje meer. Statistisch significant meer.
 
 Wat het experiment bijzonder maakt: het bedrag maakte nauwelijks uit. Of je nu vijf dollar of twintig dollar uitgaf, het geluksverschil zat 'm in *dat* je gaf, niet in *hoeveel* je gaf.
 
-## Frequentie verslaat intensiteit
+## Waarom is frequentie belangrijker dan intensiteit?
 
 Hier zit de crux. Veel mensen denken in termen van *intensiteit*: hoe groter het gebaar, hoe meer geluk het oplevert. Maar de psychologie wijst anders uit. Het gaat om *frequentie*.
 
 - Een eenmalige gift van 100 euro voelt bevredigend, maar het effect ebt binnen een dag weg.
 - Dagelijks iets kleins doen voor een ander — een deur openhouden, een compliment geven, helpen met een klusje — geeft je elke keer een kleine dopamine-piek.
 
-Onderzoekers van de Universiteit Twente, die prosociaal gedrag uitgebreid hebben bestudeerd, bevestigen dit beeld. Uit hun studies blijkt dat mensen die regelmatig, laagdrempelige goede daden verrichten een stabieler en hoger geluksniveau rapporteren dan mensen die sporadisch grote gebaren maken. De frequentie van prosociaal gedrag blijkt een betere voorspeller van welzijn dan de omvang ervan.
+Onderzoekers van de [Universiteit Twente](https://www.utwente.nl/), die prosociaal gedrag uitgebreid hebben bestudeerd, bevestigen dit beeld. Uit hun studies blijkt dat mensen die regelmatig, laagdrempelige goede daden verrichten een stabieler en hoger geluksniveau rapporteren dan mensen die sporadisch grote gebaren maken. De frequentie van prosociaal gedrag blijkt een betere voorspeller van welzijn dan de omvang ervan.
 
-## Je brein trainen om kansen te zien
+## Hoe train je je brein om kansen te zien?
 
 Het mooiste is: het werkt als een vliegwiel. Hoe vaker je iets goeds doet, hoe meer je brein automatisch gaat zoeken naar mogelijkheden om iets goeds te doen. Het wordt een gewoonte, een reflex.
 
@@ -39,7 +41,7 @@ Hier past Dagdaad precies in het plaatje. Door elke dag één goede daad te note
 
 Het zijn geen wereldschokkende gebaren. Maar ze tellen wel degelijk.
 
-## Waarom het werkt: psychologische mechanismen
+## Welke psychologische mechanismen maken kleine daden effectief?
 
 Waarom maken kleine goede daden zo'n verschil? Drie mechanismen spelen een rol:
 

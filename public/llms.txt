@@ -4,10 +4,31 @@
 ## Belangrijke pagina's
 
 - [Home](https://dagdaad.nl/) — Startpagina met uitleg over Dagdaad
+- [Blog](https://dagdaad.nl/blog) — Artikelen over vriendelijkheid, positiviteit en de wetenschap van goede daden
 - [Schrijven](https://dagdaad.nl/write) — Noteer je dagelijkse goede daad
 - [Kalender](https://dagdaad.nl/calendar) — Maandelijks overzicht van goede daden
 - [Statistieken](https://dagdaad.nl/stats) — Overzicht van patronen en streaks
 - [Inloggen](https://dagdaad.nl/login) — Log in of maak een account
+- [Privacybeleid](https://dagdaad.nl/privacy) — Hoe Dagdaad omgaat met jouw gegevens
+- [Algemene Voorwaarden](https://dagdaad.nl/terms) — Gebruiksvoorwaarden van Dagdaad
+
+## Blog artikelen
+
+- [Waarom 's avonds schrijven beter is dan 's ochtends](https://dagdaad.nl/blog/waarom-s-avonds-schrijven-beter-is) — Onderzoek naar journaling en slaap
+- [Waarom kleine goede daden je gelukkiger maken](https://dagdaad.nl/blog/waarom-kleine-goede-daden-je-gelukkiger-maken) — Prosociaal gedrag en geluk
+- [Vrijwilligerswerk zonder vaste verplichting](https://dagdaad.nl/blog/vrijwilligerswerk-zonder-vaste-verplichting) — Micro-vrijwilligerswerk en laagdrempelige impact
+- [Zo train je je brein in positiviteit](https://dagdaad.nl/blog/train-je-brein-in-positiviteit) — Neuroplasticiteit en positief denken
+- [Journaling voor beginners](https://dagdaad.nl/blog/journaling-voor-beginners-zo-begin-je-zonder-druk) — Zo begin je zonder perfectionisme
+- [Hoe praat je met een eenzame buur?](https://dagdaad.nl/blog/hoe-praat-je-met-een-eenzame-buur) — 5 praktische gesprekstips
+- [Hoe maak je van een goede gewoonte een blijvende?](https://dagdaad.nl/blog/hoe-maak-je-van-een-goede-gewoonte-een-blijvende-gewoonte) — BJ Fogg en James Clear over gewoontevorming
+- [Het Dankboek versus een app](https://dagdaad.nl/blog/het-dankboek-versus-een-app) — Vergelijking papier vs digitaal
+- [Waarom frequentie belangrijker is dan omvang](https://dagdaad.nl/blog/elke-dag-een-goede-daad-waarom-frequentie-belangrijker-is-dan-omvang) — 1 goede daad per dag vs 30 per maand
+- [Eenzaamheid in Nederland: wat jij kan doen](https://dagdaad.nl/blog/eenzaamheid-in-nederland-wat-jij-als-buur-kan-doen) — Concrete acties die helpen
+- [De 3 goede dingen-oefening](https://dagdaad.nl/blog/de-3-goede-dingen-oefening-wat-het-is-en-waarom-het-werkt) — Seligman's positieve psychologie oefening
+- [Dankbaarheidsdagboek: 7 manieren om vol te houden](https://dagdaad.nl/blog/dankbaarheidsdagboek-volhouden-7-manieren) — Praktische tips
+- [Dankbaarheid op het werk](https://dagdaad.nl/blog/dankbaarheid-op-het-werk) — 3 oefeningen voor teamcultuur
+- [Dagboek schrijven: 6 voordelen](https://dagdaad.nl/blog/dagboek-schrijven-6-voordelen-mentale-gezondheid) — Mentale gezondheid en journaling
+- [5 kleine gebaren die eenzaamheid verminderen](https://dagdaad.nl/blog/5-kleine-gebaren-die-eenzaamheid-verminderen) — Laagdrempelige acties
 
 ## Over Dagdaad
 

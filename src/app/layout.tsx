@@ -134,6 +134,7 @@ export default function RootLayout({
     <html lang="nl" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
         <link rel="llms-txt" href="/llms.txt" />
+        <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Dagdaad Blog" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

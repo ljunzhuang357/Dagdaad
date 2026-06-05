@@ -6,17 +6,19 @@ date: 2026-06-03
 tags: [Het Dankboek, dankbaarheid app, vergelijking, dagboek]
 ---
 
+Kort samengevat: Het Dankboek (papier) en een app zoals Dagdaad vullen elkaar aan. Het papieren ritueel is onvervangbaar voor de avondreflectie, maar een digitale app biedt herinneringen, doorzoekbaarheid en patroonherkenning. De beste oplossing is om allebei te gebruiken voor verschillende momenten van de dag.
+
 Je hebt goede voornemens. Elke dag stilstaan bij waar je dankbaar voor bent — het klinkt simpel, maar de praktijk is weerbarstig. De eerste week lukt het nog. Dan slipt er een dag tussenuit. Voor je het weet liggen er drie lege avonden achter je en voelt het voornemen als een afgang.
 
 De keuze tussen een papieren dankboek en een app lijkt misschien klein, maar bepaalt vaak of je het volhoudt. Hier een eerlijke vergelijking.
 
-## De opmars van Het Dankboek
+## Waarom is Het Dankboek zo populair geworden?
 
-Het Dankboek van Ernst-Jan Pfauth is in Nederland niet meer weg te denken uit de schappen. Het concept is simpel: elke dag schrijf je drie dingen op waar je dankbaar voor bent. Het boek heeft een strak ontwerp, geen regels voor een heel jaar, en een vaste plek op je nachtkastje.
+Het Dankboek van [Ernst-Jan Pfauth](https://www.hetdankboek.nl/) is in Nederland niet meer weg te denken uit de schappen. Het concept is simpel: elke dag schrijf je drie dingen op waar je dankbaar voor bent. Het boek heeft een strak ontwerp, geen regels voor een heel jaar, en een vaste plek op je nachtkastje.
 
-Psycholoog Robert Emmons toonde aan dat mensen die wekelijks bijhouden waar ze dankbaar voor zijn, meer vooruitgang boeken richting hun doelen en zich gemiddeld 25 procent gelukkiger voelen. Het Dankboek maakt dat concreet.
+Psycholoog [Robert Emmons](https://greatergood.berkeley.edu/) toonde aan dat mensen die wekelijks bijhouden waar ze dankbaar voor zijn, meer vooruitgang boeken richting hun doelen en zich gemiddeld 25 procent gelukkiger voelen. Het Dankboek maakt dat concreet.
 
-## Wat papier je geeft (en kost)
+## Wat zijn de voor- en nadelen van een papieren dankboek?
 
 Het tastbare ritueel is de grote kracht. Je telefoon ligt in een andere kamer. Geen notificaties, geen impulsen om nog even Instagram te checken. Pen op papier, adem uit, schrijf.
 
@@ -27,7 +29,7 @@ Andere nadelen:
 - **Geen patroonherkenning.** Zie je structureel bepaalde thema's terugkomen? Zonder dataverzameling blijft dat giswerk.
 - **Altijd bij je dragen.** Het boek werkt alleen waar het boek is. Een gemiste overnachting betekent een gemiste dag.
 
-## Wat een app je geeft (en kost)
+## Wat zijn de voor- en nadelen van een digitale app?
 
 Een goede app lost precies die problemen op. Herinneringen die je 's avonds een seintje geven. Altijd bij je, want je telefoon heb je toch al op zak. En de mogelijkheid om terug te kijken en patronen te ontdekken.
 
@@ -38,9 +40,9 @@ Nadelen van digitaal zijn er ook:
 - **Notificaties.** Die herinnering kan motiveren, maar ook storen.
 - **Keuzestress.** Veel apps zijn te uitgebreid, te sociaal, te alles.
 
-## Waarom Dagdaad anders is
+## Waarom is Dagdaad anders dan andere apps?
 
-Dagdaad combineert het beste van beide werelden, met een unieke focus: niet alleen *dankbaar zijn*, maar *iets doen*. Het principe is gebaseerd op Seligman's "three good things"-oefening, maar vertaalt dat naar prosociaal gedrag. Elke dag noteer je één goede daad — iets wat je voor een ander hebt gedaan, hoe het voelde en wat het effect was.
+Dagdaad combineert het beste van beide werelden, met een unieke focus: niet alleen *dankbaar zijn*, maar *iets doen*. Het principe is gebaseerd op [Seligman's](https://ppc.sas.upenn.edu/) "three good things"-oefening, maar vertaalt dat naar prosociaal gedrag. Elke dag noteer je één goede daad — iets wat je voor een ander hebt gedaan, hoe het voelde en wat het effect was.
 
 Specifiek voor Nederlanders gebouwd, in het Nederlands, zonder poespas. Je krijgt:
 - Dagelijkse herinneringen op een moment dat jij kiest
